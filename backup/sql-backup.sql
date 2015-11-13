@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 -- 
 -- 主机: localhost
--- 生成日期: 2015 年 11 月 12 日 09:51
+-- 生成日期: 2015 年 11 月 13 日 03:59
 -- 服务器版本: 5.0.51
 -- PHP 版本: 5.2.6
 
@@ -29,6 +29,7 @@ CREATE TABLE `myself_article` (
   `create_date` varchar(255) collate utf8_unicode_ci NOT NULL,
   `update_date` varchar(255) collate utf8_unicode_ci NOT NULL,
   `user_id` int(255) NOT NULL,
+  `count` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
