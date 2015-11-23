@@ -3,10 +3,10 @@ seajs.config({
     alias: {
         //init: 'init.js',
         jquery: 'jquery.js',
-        marked: 'editor/marked.js', //markdown parser
-        form: 'editor/jquery.form.js', //jquery.form.js
 
         //helloworld
+        marked: 'editor/marked.js', //markdown parser
+        form: 'editor/jquery.form.js', //jquery.form.js
         HelloWorld: 'editor/components/helloworld.js',
         TextArea: 'editor/components/textarea.js',
         EditorCSS: 'editor/css/editor.css',
