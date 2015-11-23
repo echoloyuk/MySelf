@@ -1,0 +1,133 @@
+/* Hello World Editor style sheet */
+/* HelloWorld样式文件 */
+.h-text-content {
+  font: 400 18px/1.82 "Microsoft YaHei", "SimSun", sans-serif;
+  color: #333332;
+  line-height: 1.6em;
+}
+.h-text-content h1,
+.h-text-content h2,
+.h-text-content h3,
+.h-text-content h4 {
+  font-weight: bold;
+}
+.h-text-content h1 {
+  font-size: 1.8em;
+  margin: 0.5em 0;
+}
+.h-text-content h2 {
+  font-size: 1.5em;
+  margin: 0.63em 0;
+}
+.h-text-content h3 {
+  font-size: 1.17em;
+  margin: 0.6em 0;
+}
+.h-text-content h4,
+.h-text-content h5,
+.h-text-content h6 {
+  font-size: 1em;
+  margin: 1em 0 1em 0;
+}
+.h-text-content p {
+  margin-top: 0;
+  margin-bottom: 1.34em;
+  line-height: 1.68em;
+}
+.h-text-content a {
+  color: #111;
+  word-wrap: break-word;
+}
+.h-text-content a:hover {
+  color: #555;
+}
+.h-text-content strong,
+.h-text-content b {
+  font-weight: bolder;
+  color: #333;
+}
+.h-text-content em,
+.h-text-content i {
+  font-style: italic;
+  color: #ba4343;
+}
+.h-text-content img {
+  max-width: 100%;
+  margin: 0.2em 0;
+}
+.h-text-content hr {
+  border: 0 none;
+  border-bottom: 1em;
+}
+.h-text-content hr:after {
+  color: #9f9f95;
+  font-size: 1.1em;
+  display: block;
+  content: "* * *";
+  text-align: center;
+  letter-spacing: 0.6em;
+}
+.h-text-content blockquote {
+  padding-left: 20px;
+  border-left: 4px solid #dadada;
+  margin: 0 0 1.64em -24px;
+  color: #666664;
+}
+.h-text-content ul,
+.h-text-content ol {
+  margin: 0 0 24px 6px;
+  padding-left: 16px;
+}
+.h-text-content ul,
+.h-text-content li {
+  list-style-type: square;
+}
+.h-text-content ol {
+  list-style-type: decimal;
+}
+.h-text-content li {
+  margin-bottom: 0.2em;
+}
+.h-text-content li ul,
+.h-text-content li ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 14px;
+}
+.h-text-content li ul {
+  list-style-type: disc;
+}
+.h-text-content li ul ul {
+  ist-style-type: circle;
+}
+.h-text-content li p {
+  margin: 0.4em 0 0.6em;
+}
+.h-text-content code,
+.h-text-content tt {
+  color: #808080;
+  font-size: 0.96em;
+  background-color: #f4f8ee;
+  padding: 1px 2px;
+  border: 1px solid #dadada;
+  border-radius: 3px;
+  font-family: "Consolas", "Courier New", "Inconsolata", "Menlo", monospace;
+}
+.h-text-content pre {
+  padding: 7px;
+  border: 1px solid #dadada;
+  border-radius: 4px;
+  overflow: auto;
+  line-height: 1.5;
+  font-size: 0.96em;
+  font-family: "Consolas", "Courier New", "Inconsolata", "Menlo", monospace;
+  color: #4c4c4c;
+  background-color: #f4f8ee;
+}
+.h-text-content pre code,
+.h-text-content pre tt {
+  color: #4c4c4c;
+  border: none;
+  background-color: none;
+  padding: auto;
+}
