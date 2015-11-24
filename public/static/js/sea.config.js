@@ -22,5 +22,5 @@ seajs.config({
     // preload: ['init'], // jquery所有版本适用
     preload: ['jquery'],// jquery1.10以上使用
     debug: true,
-    base: './public/static/'
+    base: './static/'
 });
