@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./app/routes/index');
-var users = require('./app/routes/users');
 var session = require('express-session'); //支持session
 
 var app = express();
@@ -26,7 +25,6 @@ app.use('/static', express.static('public/static')); //静态文件
 
 
 app.use('/', routes);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
