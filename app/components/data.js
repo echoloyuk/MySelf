@@ -4,7 +4,7 @@ var async = require('async');
 
 var data = function (){};
 
-data.testConn = function (){
+data.query = function (sql, callback){
     var host = CONFIG.sql.host,
         user = CONFIG.sql.user,
         password = CONFIG.sql.password,
@@ -16,11 +16,10 @@ data.testConn = function (){
         password: password,
         database: database
     });
-    var result;
     async.waterfall([
         function (next){
             conn.connect();
-            conn.query('select * from myself_user', function (err, rows, fields){
+            conn.query(sql, function (err, rows, fields){
                 if (err){
                     throw err;
                 }
@@ -28,14 +27,9 @@ data.testConn = function (){
             });
         }, function (rows, next){
             conn.end();
-            console.log(1);
-            console.log(rows);
-            result = rows;
+            callback.call(this, rows);
         }
     ]);
-    console.log(2);
-    console.log(result);
-    return result;
 }
 
 module.exports = data;
