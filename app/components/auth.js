@@ -11,18 +11,14 @@ router.use(function (req, res, next){
     console.log('auth validate');
 
     if (req.method === 'GET'){ //只对GET做筛选
-        if (req.path.indexOf('/admin') === 0){ //只过滤admin
-            if (req.originalUrl === '/admin/login'){ //访问登录本身则放过
-                next();
-            } else {
-                if (session && session['username']){ //通过
-                    next();
-                } else { //需要登录
-                    res.redirect('/admin/login');
-                }
-            }
-        } else {
+        if (req.originalUrl === '/admin/login'){ //访问登录本身则放过
             next();
+        } else {
+            if (session && session['username']){ //通过
+                next();
+            } else { //需要登录
+                res.redirect('/admin/login');
+            }
         }
     } else {
         next();

@@ -23,8 +23,7 @@ app.use(cookieParser());
 app.use(session({secret:'myself'})); //session;
 app.use('/static', express.static('public/static')); //静态文件
 
-app.use(auth); //验证身份
-
+app.use('/admin', auth); //验证身份
 
 app.use('/admin', adminRoutes);
 app.use('/', routes);
