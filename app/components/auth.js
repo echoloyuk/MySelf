@@ -29,5 +29,11 @@ router.use(function (req, res, next){
     }
 });
 
+/*
+router.use(function (req, res, next){
+    console.log('other auth');
+    next();
+});
+*/
 
 module.exports = router;
