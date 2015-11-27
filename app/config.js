@@ -8,7 +8,8 @@ var config = {
         hostName: '172.27.11.190',
         user: 'root',
         password: 'echo890202',
-        database: 'myself'
+        database: 'myself',
+        suffix: 'mc_'
     }
 }
 

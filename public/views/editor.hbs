@@ -1,0 +1,14 @@
+<style type="text/css">
+#editor{
+    border:1px solid red;
+}
+</style>
+<div id="editor" height="1000px"></div>
+<script type="text/javascript">
+seajs.use(['HelloWorld'], function (HelloWorld){
+    $(function (){
+        var e = new HelloWorld($('#editor'));
+        e.init();
+    });
+});
+</script>

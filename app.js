@@ -6,7 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./app/routes/index');
+var adminRoutes = require('./app/routes/admin');
 var session = require('express-session'); //支持session
+var auth = require('./app/components/auth'); //身份验证
 
 var app = express();
 
@@ -14,8 +16,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'public/views'));
 app.set('view engine', 'hbs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,11 +23,16 @@ app.use(cookieParser());
 app.use(session({secret:'myself'})); //session;
 app.use('/static', express.static('public/static')); //静态文件
 
+app.use(auth); //验证身份
 
+
+app.use('/admin', adminRoutes);
 app.use('/', routes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+    console.log('404 error');
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
