@@ -12,6 +12,8 @@ router.get('/', function (req, res, next){
     res.render('dashboard');
 });
 
+/* POST dashboard */
+
 /* GET login */
 router.get('/login', function (req, res, next){
     res.render('login');
