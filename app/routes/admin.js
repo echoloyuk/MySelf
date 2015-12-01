@@ -7,11 +7,6 @@ router.get('/editor', function(req, res, next) {
     res.render('editor', { title: 'Express' });
 });
 
-/* GET dashboard */
-router.get('/', function (req, res, next){
-    res.render('dashboard');
-});
-
 /* GET login */
 router.get('/login', function (req, res, next){
     res.render('login');
@@ -24,18 +19,27 @@ router.post('/doLogin', function (req, res, next){
     console.log(username + ':' + password);
 
     user.loginAuth(username, password, function (rows){
-        
         var session = req.session;
         session['username'] = rows[0]['username'];
-        res.send('success');
-
+        var info = {
+            stat: 'success'
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(info));
     }, function (){
-
         var session = req.session;
         delete session['username'];
-        res.send('error');
+        var info = {
+            stat: 'error'
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(info));
     });
 });
 
+/* GET dashboard */
+router.use('/', function (req, res, next){
+    res.render('dashboard');
+});
 
 module.exports = router;

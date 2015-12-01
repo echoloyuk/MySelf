@@ -1,15 +1,38 @@
 <h1>MySelf</h1>
 
-<form action="./doLogin" method="post">
+<form action="/admin/" method="post" id="form">
     <input type="text" name="username" placeholder="用户名" />
     <input type="password" name="password" placeholder="密码" />
-    <input type="submit" value="登录" />
+    <div class="button" id="login">登录</div>
 </form>
 
 <script type="text/javascript">
 seajs.use('jquery', function (){
     $(function (){
-
+        $('#login').on('click', function (){
+            $.ajax({
+                type:'POST',
+                url: './doLogin',
+                dataType: 'json',
+                success: function (result){
+                    result = (result.stat ? result : $.parseJSON(result));
+                    console.log(result.stat);
+                    if (result.stat === 'success'){
+                        $('#form').submit();
+                    }
+                },
+                complete: function (){
+                    console.log(2);
+                },
+                error: function (err){
+                    console.log(3);
+                },
+                data: {
+                    username: $('input[name="username"]').val(),
+                    password: $('input[name="password"]').val()
+                }
+            })
+        });
     });
 });
 </script>
