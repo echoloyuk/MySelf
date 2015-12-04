@@ -37,9 +37,16 @@ router.post('/doLogin', function (req, res, next){
     });
 });
 
+/* GET welcome */
+router.use('/welcome', function (req, res, next){
+    res.render('welcome');
+});
+
 /* GET dashboard */
 router.use('/', function (req, res, next){
     res.render('dashboard');
 });
+
+
 
 module.exports = router;

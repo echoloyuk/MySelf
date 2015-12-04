@@ -1,4 +1,94 @@
 /* LESS的基本样式 */
+/* 变量 */
+/* 样式 */
+html,
 body {
   background-color: #eee;
+  font-family: 'lucida grande', 'lucida sans unicode', lucida, helvetica, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+/* include */
+/* 公用的函数css */
+/* 控制台 */
+.dashboard {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+.dashboard .left-side {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  font-size: 14px;
+  color: #d3d3d3;
+  background-color: #484848;
+  box-sizing: border-box;
+  box-shadow: 0 0 4px #000;
+  z-index: 100;
+}
+.dashboard .left-side .logo-panel {
+  padding: 16px 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #3c3c3c;
+}
+.dashboard .left-side .nav-panel .nav-inner .nav-item {
+  padding: 10px;
+  line-height: 1.5em;
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+.dashboard .left-side .nav-panel .nav-inner .nav-item:hover {
+  background-color: #777;
+}
+.dashboard .left-side .nav-panel .nav-inner .nav-item.current {
+  background-color: #aaa;
+  color: #444;
+}
+.dashboard .left-side .bottom-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.dashboard .left-side .bottom-panel .bottom-inner .bottom-item {
+  padding: 10px;
+  line-height: 1.5em;
+  cursor: pointer;
+  transition: all .2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+.dashboard .left-side .bottom-panel .bottom-inner .bottom-item:hover {
+  background-color: #999;
+}
+.dashboard .left-side .bottom-panel .bottom-inner .bottom-item:active {
+  background-color: #ccc;
+}
+.dashboard .right-side {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 100px;
+  z-index: 99;
+}
+.dashboard .right-side .right-frame {
+  width: 100%;
+  height: 100%;
+}
+/* welcome */
+.welcome {
+  padding: 10px;
 }
