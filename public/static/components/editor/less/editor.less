@@ -1,0 +1,288 @@
+/* Hello World Editor style sheet */
+@outer-bg:#fff; //编辑器背景颜色
+@title-bg:#f7f7f7; //文本编辑器标题背景颜色
+@tool-bg:#dedede; //文本编辑器工具栏背景颜色
+@content-bg:#f7f7f7; //正文文本编辑器的背景颜色
+@preview-bg:#fff; //预览背景颜色
+@info-bg:#dedede; //文本编辑器下方的状态栏的背景颜色
+@p-border:#414141; //预览与编辑器之间的边线颜色
+
+@font: "Consolas", "Courier New", "Microsoft YaHei"; //textarea字体
+
+@import "function.less"; //工具样式
+
+/* 工具栏图标 */
+@font-face{
+    font-family: 'HelloWorldIconFont';
+    src: url('../font/fontello.eot'); /* IE9*/
+    src: url('../font/fontello.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../font/fontello.woff') format('woff'), /* chrome、firefox */
+    url('../font/fontello.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../font/fontello.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+/* stylesheet */
+.h-outer{
+    background-color:@outer-bg;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+
+    .h-textarea{
+        position:absolute;
+        right:40%;
+        top:0;
+        bottom:0;
+        left:0;
+        z-index:100;
+        box-shadow: 0 0 6px #333;
+
+        .h-title-panel{
+            padding:10px 30px;
+            height:80px;
+            background-color:@title-bg;
+            box-sizing:border-box;
+
+            .h-title{
+                height:60px;
+                width:100%;
+                line-height:60px;
+                font-size:24px;
+                background-color: @title-bg;
+                border:none;
+                outline: none;
+                font-family: @font;
+            }
+
+        }
+        .h-tool-panel{
+            height:30px;
+            background-color:@tool-bg;
+            padding:0 30px;
+            
+            .h-tool-item{
+                float:left;
+                height:30px;
+                width:30px;
+                cursor:pointer;
+                box-sizing:border-box;
+                text-align: center;
+                margin-right: 6px;
+                transition: all .2s;
+    
+                &:hover{
+                    color: #999;
+                    text-shadow:0 0 2px #999;
+                }
+
+                &.h-icon-img::before{
+                    font-family: 'HelloWorldIconFont';
+                    content: '\E800';
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+                &.h-icon-link::before{
+                    font-family: 'HelloWorldIconFont';
+                    content: '\E801';
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+            }
+        }
+
+        .h-content-panel{
+            position:absolute;
+            top:110px;
+            left:0px;
+            right:0px;
+            bottom:30px;
+            background-color:@content-bg;
+            padding:30px;
+
+            .h-content{
+                border:none;
+                width:100%;
+                height:100%;
+                background-color:@content-bg;
+                font-family:@font;
+                font-size:16px;
+                line-height:1.7em;
+                outline:none;
+                resize:none;
+            }
+        }
+
+        .h-info-panel{
+            position: absolute;
+            bottom:0;
+            left:0;
+            right:0;
+            height:30px;
+            line-height:30px;
+            background-color:@info-bg;
+            padding:0 20px;
+            font-size:12px;
+        }
+
+    }
+    .h-preview{
+        position:absolute;
+        right:0;
+        top:0;
+        bottom:0;
+        left:60%;
+        background-color:@preview-bg;
+        padding:30px;
+        overflow:auto;
+
+        .h-text-content-title{
+            font-size:3em;
+            font-weight:bolder;
+            line-height:1.2em;
+        }
+        .h-text-content{
+            border-top:1px solid #ccc;
+            margin-top:20px;
+            padding:20px 0;
+            position: relative;
+        }
+    }
+
+    &.h-masked{
+        -webkit-filter:blur(3px);
+        -moz-filter:blur(3px);
+        -o-filter:blur(3px);
+        -ms-filter:blur(3px);
+        filter:blur(3px);
+    }
+}
+.h-masker{
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    z-index:999;
+    opacity:0.5;
+    background-color: #000;
+    display: none;
+}
+.h-dialog{
+    position:absolute;
+    width:500px;
+    height:320px;
+    background-color:#fff;
+    box-shadow: 0 0 12px #000;
+    z-index: 1000;
+    display: none;
+    border-radius: 4px;
+
+    .h-dialog-ctrl-panel{
+        font-size:14px;
+        position:relative;
+        line-height:40px;
+        height: 40px;
+        padding:0 20px;
+        background-color:#646464;
+        color:#fff;
+        border-radius: 4px 4px 0 0;
+
+        .h-dialog-title{
+            font-weight:bold;
+        }
+
+        .h-dialog-ctrl-btn{
+            position:absolute;
+            right:20px;
+            top:10px;
+            width:20px;
+            height:20px;
+            cursor:pointer;
+
+            &::before{
+                font-family: 'HelloWorldIconFont';
+                content: '\E802';
+                font-size: 14px;
+                line-height: 20px;
+                width:20px;
+                height:20px;
+                text-align:right;
+                position:absolute;
+                top:0;
+                left: 0;
+            }
+
+            &:hover{
+                color:#ccc;
+            }
+        }
+    }
+    .h-dialog-form-panel{
+        padding:20px;
+
+        .h-dialog-input{
+            line-height: 2em;
+            padding:0 0 20px;
+
+            .h-dialog-text{
+                border: 1px solid #ccc;
+                height: 26px;
+                line-height: 26px;
+                font-size: 14px;
+                min-width: 300px;
+                vertical-align: middle;
+                outline: none;
+            }
+            .h-dialog-upfile{
+                vertical-align: middle;
+                max-width: 400px;
+                min-width: 300px;
+                overflow: hidden;
+                border:1px solid #ccc;
+                outline: none;
+            }
+        }
+        .h-dialog-info{
+            padding: 10px 0 10px;
+            line-height:2em;
+        }
+    }
+
+    .h-dialog-btn{
+        font-size:13px;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 20px;
+        display:inline-block;
+        vertical-align:middle;
+        text-align:center;
+        cursor:pointer;
+        background-color:#b2b2b2;
+        transition:all .2s;
+        .user-select;
+
+        &:hover{
+            background-color:#d6d6d6;
+        }
+        &:active{
+            background-color:#aaa;
+        }
+    }
+    .h-dialog-upload-percentage{
+        height:4px;
+        background-color:#eee;
+        padding:0;
+        margin:8px 0 16px;
+        position:relative;
+
+        .h-dialog-upload-inner{
+            height:4px;
+            position:absolute;
+            left:0;
+            top:0;
+            background-color:#59af3a;
+        }
+    }
+}

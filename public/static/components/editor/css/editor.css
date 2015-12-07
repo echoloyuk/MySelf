@@ -4,14 +4,13 @@
 @font-face {
   font-family: 'HelloWorldIconFont';
   src: url('../font/fontello.eot');
-  src: url('../font/fontello.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../font/fontello.woff') format('woff'), /* chrome、firefox */ url('../font/fontello.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../font/fontello.svg#iconfont') format('svg');
-  
   /* IE9*/
+  src: url('../font/fontello.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../font/fontello.woff') format('woff'), /* chrome、firefox */ url('../font/fontello.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../font/fontello.svg#iconfont') format('svg');
   /* iOS 4.1- */
 }
 /* stylesheet */
 .h-outer {
-  background-color: #ffffff;
+  background-color: #fff;
   position: absolute;
   top: 0;
   left: 0;
@@ -37,10 +36,11 @@
   height: 60px;
   width: 100%;
   line-height: 60px;
-  font-size: 2.6em;
+  font-size: 24px;
   background-color: #f7f7f7;
   border: none;
   outline: none;
+  font-family: "Consolas", "Courier New", "Microsoft YaHei";
 }
 .h-outer .h-textarea .h-tool-panel {
   height: 30px;
@@ -87,9 +87,9 @@
   width: 100%;
   height: 100%;
   background-color: #f7f7f7;
-  font-family: "Consolas", "Courier New";
-  font-size: 1.4em;
-  line-height: 1.4em;
+  font-family: "Consolas", "Courier New", "Microsoft YaHei";
+  font-size: 16px;
+  line-height: 1.7em;
   outline: none;
   resize: none;
 }
@@ -102,6 +102,7 @@
   line-height: 30px;
   background-color: #dedede;
   padding: 0 20px;
+  font-size: 12px;
 }
 .h-outer .h-preview {
   position: absolute;
@@ -109,7 +110,7 @@
   top: 0;
   bottom: 0;
   left: 60%;
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 30px;
   overflow: auto;
 }

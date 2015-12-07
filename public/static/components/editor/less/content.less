@@ -1,0 +1,126 @@
+/* Hello World Editor style sheet */
+/* HelloWorld样式文件 */
+@font: "Consolas", "Courier New", "Inconsolata", "Menlo", monospace;
+
+.h-text-content{
+    font: 400 18px/1.82 "Microsoft YaHei", "SimSun", sans-serif;
+    color: #333332;
+    line-height: 1.6em;
+
+    h1, h2, h3, h4{
+        font-weight: bold;
+    }
+    h1{
+        font-size: 1.8em;
+        margin: 0.5em 0;
+    }
+    h2{
+        font-size: 1.5em;
+        margin: 0.63em 0;
+    }
+    h3{
+        font-size: 1.17em;
+        margin: 0.6em 0;
+    }
+    h4, h5, h6{
+        font-size: 1em;
+        margin: 1em 0 1em 0;
+    }
+
+    p{
+        margin-top: 0;
+        margin-bottom: 1.34em;
+        line-height:1.68em;
+    }
+    a{
+        color: #111;
+        word-wrap: break-word;
+    }
+    a:hover{
+        color: #555;
+    }
+    strong, b{
+        font-weight:bolder;
+        color: #333;
+    }
+    em, i{
+        font-style: italic;
+        color: #ba4343;
+    }
+    img{
+        max-width: 100%;
+        margin: 0.2em 0;
+    }
+    hr{
+        border: 0 none;
+        border-bottom: 1em;
+    }
+    hr:after {
+        color: #9f9f95;
+        font-size: 1.1em;
+        display: block;
+        content: "* * *";
+        text-align: center;
+        letter-spacing: 0.6em;
+    }
+    blockquote{
+        padding-left: 20px;
+        border-left: 4px solid #dadada;
+        margin: 0 0 1.64em -24px;
+        color: #666664;
+    }
+    ul, ol{
+        margin: 0 0 24px 6px;
+        padding-left: 16px;
+    }
+    ul, li{
+        list-style-type: square;
+    }
+    ol{
+        list-style-type: decimal;
+    }
+    li {
+        margin-bottom: 0.2em;
+    }
+    li ul,li ol {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 14px;
+    }
+    li ul {
+        list-style-type: disc;
+    }
+    li ul ul {
+        ist-style-type: circle;
+    }
+    li p {
+        margin: 0.4em 0 0.6em;
+    }
+
+    code, tt{
+        color: #808080;
+        font-size: 0.96em;
+        background-color: #f4f8ee;
+        padding: 1px 2px;
+        border: 1px solid #dadada;
+        border-radius: 3px;
+        font-family: @font;
+    }
+    pre {
+        padding: 7px;
+        border: 1px solid #dadada;
+        border-radius: 4px;
+        overflow: auto;
+        line-height: 1.5;
+        font-size: 0.96em;
+        font-family: @font;
+        color: #4c4c4c;
+        background-color: #f4f8ee;
+    }
+    pre code,pre tt {
+        color: #4c4c4c;
+        border: none;
+        background-color: none;
+        padding: auto;
+    }
+}
