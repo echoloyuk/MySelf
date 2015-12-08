@@ -35,7 +35,10 @@ seajs.use(['/static/js/dashboardConfig'], function (config){
         $('#nav .nav-inner .nav-item').off().on('click', function (){
             var $this = $(this),
                 link = $this.attr('data-link');
-            if(!link){
+            if (!link){
+                return;
+            }
+            if ($this.hasClass('current')){
                 return;
             }
             $('#frame').attr('src', link);
