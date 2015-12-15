@@ -47,7 +47,6 @@ user.loginAuth = function (user, pass, onSucc, onErr){
         if (isSqlErr(err, onErr)){
             return
         }
-
         if (rows.length === 1){
             rows = rows; //该步骤处理module，只是vo与数据库相同
             onSucc.call(this, rows, fields);
