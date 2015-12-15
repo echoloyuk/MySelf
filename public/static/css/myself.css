@@ -8,6 +8,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 14px;
+  color: #555;
 }
 /* include */
 /* 公用的函数css */
@@ -48,7 +49,7 @@ body {
   -o-user-select: none;
 }
 .dashboard .left-side .nav-panel .nav-inner .nav-item:hover {
-  background-color: #777;
+  background-color: #6f6f6f;
 }
 .dashboard .left-side .nav-panel .nav-inner .nav-item.current {
   background-color: #aaa;
@@ -91,4 +92,57 @@ body {
 /* welcome */
 .welcome {
   padding: 10px;
+}
+/* login */
+.login .login-panel {
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -200px;
+  margin-top: -150px;
+}
+.login .login-panel .login-title {
+  text-align: center;
+  font-size: 56px;
+}
+.login .login-panel .login-subtitle {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+.login .login-panel .login-input {
+  text-align: center;
+  margin: 20px 0;
+}
+.login .login-panel .login-input .input {
+  border: 1px solid #ccc;
+  height: 40px;
+  line-height: 40px;
+  width: 280px;
+  font-size: 16px;
+  color: #555;
+  box-sizing: border-box;
+  padding: 0 10px;
+  outline: none;
+  font-family: 'Microsoft YaHei', sans-serif;
+  transition: all .3s;
+}
+.login .login-panel .login-input .input:focus {
+  box-shadow: 0 0 4px #aaaaaa;
+}
+.login .login-panel .login-submit {
+  background-color: #484848;
+  height: 40px;
+  line-height: 40px;
+  width: 280px;
+  margin: 40px auto;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  transition: all .3s;
+}
+.login .login-panel .login-submit:hover {
+  background-color: #6f6f6f;
 }
