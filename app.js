@@ -28,7 +28,6 @@ app.use('/admin', auth); //验证身份
 app.use('/admin', adminRoutes);
 app.use('/', routes);
 
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     console.log('404 error');
