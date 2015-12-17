@@ -4,13 +4,14 @@
 @font-face {
   font-family: 'HelloWorldIconFont';
   src: url('../font/fontello.eot');
-  /* IE9*/
   src: url('../font/fontello.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('../font/fontello.woff') format('woff'), /* chrome、firefox */ url('../font/fontello.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('../font/fontello.svg#iconfont') format('svg');
+  
+  /* IE9*/
   /* iOS 4.1- */
 }
 /* stylesheet */
 .h-outer {
-  background-color: #fff;
+  background-color: #ffffff;
   position: absolute;
   top: 0;
   left: 0;
@@ -19,7 +20,7 @@
 }
 .h-outer .h-textarea {
   position: absolute;
-  right: 40%;
+  right: 46%;
   top: 0;
   bottom: 0;
   left: 0;
@@ -111,8 +112,8 @@
   right: 0;
   top: 0;
   bottom: 0;
-  left: 60%;
-  background-color: #fff;
+  left: 54%;
+  background-color: #ffffff;
   padding: 30px;
   overflow: auto;
 }
