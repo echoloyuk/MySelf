@@ -16,29 +16,53 @@
 
 
 <script type="text/javascript">
-seajs.use('jquery', function (){
+seajs.use(['Dialog'], function (Dialog){
     $(function (){
+        var d = new Dialog;
+        var showDialog = function (info){
+            d.message = info;
+            d.onClose = function (){
+                clearTimeout(window.dialogTimmer);
+            }
+            d.show();
+            clearTimeout(window.dialogTimmer);
+            window.dialogTimmer = setTimeout(function (){
+                d.hide();
+            }, 2000);
+        };
         $('#login').on('click', function (){
+            var username = $('input[name="username"]').val(),
+                password = $('input[name="password"]').val();
+            var info = ''
+            if (!username){
+                info += '用户名为空；';
+            }
+            if (!password){
+                info += '密码为空';
+            }
+            if (info){
+                showDialog(info);
+                return;
+            }
             $.ajax({
                 type:'POST',
                 url: './doLogin',
                 dataType: 'json',
                 success: function (result){
                     result = (result.stat ? result : $.parseJSON(result));
-                    console.log(result.stat);
                     if (result.stat === 'success'){
                         $('#form').submit();
+                    } else {
+                        showDialog('用户名或密码错误');
                     }
                 },
                 complete: function (){
-                    console.log(2);
                 },
                 error: function (err){
-                    console.log(3);
                 },
                 data: {
-                    username: $('input[name="username"]').val(),
-                    password: $('input[name="password"]').val()
+                    username: username,
+                    password: password
                 }
             })
         });
