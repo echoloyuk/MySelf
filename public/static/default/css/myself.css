@@ -128,7 +128,7 @@ body {
   padding: 0 10px;
   outline: none;
   font-family: 'Microsoft YaHei', sans-serif;
-  transition: all .3s;
+  transition: all .2s;
 }
 .login .login-panel .login-input .input:focus {
   box-shadow: 0 0 4px #aaaaaa;
@@ -143,8 +143,27 @@ body {
   color: #eee;
   text-align: center;
   cursor: pointer;
-  transition: all .3s;
+  transition: all .2s;
 }
 .login .login-panel .login-submit:hover {
   background-color: #6f6f6f;
+}
+.admin-editor {
+  width: 100%;
+  height: 100%;
+}
+.admin-editor .admin-editor-ctrl-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+}
+.admin-editor .editor {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
 }
