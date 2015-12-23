@@ -1,8 +1,11 @@
 var version = '0.9.0';
+var theme = 'default';
+
 seajs.config({
     alias: {
         //init: 'init.js',
         jquery: 'js/jquery.js',
+        theme: theme + '/css/myself.css',
 
         //helloworld
         marked: 'components/editor/marked.js', //markdown parser
@@ -11,7 +14,15 @@ seajs.config({
         TextArea: 'components/editor/components/textarea.js',
         EditorCSS: 'components/editor/css/editor.css',
         MarkdownParser: 'components/editor/components/markdownparser.js',
-        Util: 'components/editor/components/util.js'
+        Util: 'components/editor/components/util.js',
+
+        //components
+        Dialog: 'js/dialog.js',
+        Mask: 'js/mask.js',
+
+        //components css
+        DialogCSS: theme + '/css/dialog.css',
+        MaskCSS: theme + '/css/mask.css'
         
     },
     map: [

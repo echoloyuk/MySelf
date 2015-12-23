@@ -1,0 +1,53 @@
+/* 变量 */
+
+@font:'Microsoft YaHei', sans-serif;
+@ctrl-bg: #484848; //按钮等颜色
+@ctrl-bg-hover: #6f6f6f; //按钮等hover颜色
+@ctrl-bg-disabled: #909090; //按钮等disabled颜色
+@ctrl-color: #eee; //按钮等字体颜色
+@font-color: #555; //文字颜色
+@border-color: #ccc; //边框颜色
+
+@dialog-bg:#fff; //弹出框背景颜色
+@dialog-border:#aaa; //弹出框边框颜色
+
+@sys-font-size:14px; //系统标准字号
+@sys-bg: #eee; //系统标准背景颜色
+
+
+/* 公用的函数css */
+.user-select (@select:none){
+    -webkit-user-select:@select;
+    -moz-user-select:@select;
+    -ms-user-select:@select;
+    -o-user-select:@select;
+}
+
+.transition (){
+    transition:all .2s;
+}
+
+/* 公用按钮 */
+.button (){
+    height:22px;
+    line-height:22px;
+    display:inline-block;
+    background-color:@ctrl-bg;
+    color:@ctrl-color;
+    text-align:center;
+    padding:0 6px;
+    cursor:pointer;
+    .transition;
+    .user-select;
+
+    &:hover{
+        background-color:@ctrl-bg-hover;
+    }
+    &:active{
+        background-color:#ccc;
+    }
+    &.disabled{
+        cursor:default;
+        background-color:@ctrl-bg-disabled;
+    }
+}

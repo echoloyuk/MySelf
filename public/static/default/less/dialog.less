@@ -1,0 +1,46 @@
+/* MySelf Dialog */
+
+/* 引入 */
+@import 'base.less';
+
+.myself-dialog{
+    position:absolute;
+    width:300px;
+    left:400px;
+    border:1px solid @dialog-border;
+    background-color:@dialog-bg;
+    padding:30px 26px 26px;
+    z-index:1000;
+    box-shadow:0 0 4px @dialog-border;
+
+    .dialog-ctrl-panel{
+        height:0;
+        .close{
+            position:absolute;
+            right:6px;
+            top:6px;
+            width:16px;
+            height:16px;
+            line-height:16px;
+            text-align: center;
+            cursor:pointer;
+            .user-select;
+            z-index:10;
+        }
+    }
+    .dialog-content-panel{
+        .content{
+            font-size:14px;
+            line-height:2em;
+        }
+    }
+    .dialog-btn-panel{
+        text-align:center;
+        padding-top:10px;
+
+        .dialog-btn{
+            .button;
+        }
+    }
+    
+}

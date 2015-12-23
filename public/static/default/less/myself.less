@@ -1,30 +1,17 @@
 /* LESS的基本样式 */
 
-/* 变量 */
-@font:'Microsoft YaHei', sans-serif;
-@ctrl-bg: #484848; //按钮等颜色
-@ctrl-bg-hover: #6f6f6f; //按钮等hover颜色
-@ctrl-color: #eee; //按钮等字体颜色
-@font-color: #555; //文字颜色
-@border-color: #ccc; //边框颜色
-
-.transition (){
-    transition:all .3s;
-}
+/* include */
+@import "base.less";
 
 /* 样式 */
 html, body{
-	background-color:#eee;
+	background-color:@sys-bg;
     font-family:@font;
     padding:0;
     margin:0;
-    font-size:14px;
+    font-size:@sys-font-size;
     color:@font-color;
 }
-
-/* include */
-@import "function.less";
-
 
 /* 控制台 */
 .dashboard{

@@ -1,5 +1,8 @@
 /* LESS的基本样式 */
+/* include */
 /* 变量 */
+/* 公用的函数css */
+/* 公用按钮 */
 /* 样式 */
 html,
 body {
@@ -10,8 +13,6 @@ body {
   font-size: 14px;
   color: #555;
 }
-/* include */
-/* 公用的函数css */
 /* 控制台 */
 .dashboard {
   width: 100%;
