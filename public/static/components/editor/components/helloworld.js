@@ -682,20 +682,6 @@ define(function (require, exports, module){
                 str += '不能临时保存，保存失败';
             }
             $info.html(str);
-        }, 
-
-        //获取title
-        getTitle: function (){
-            var $target = this.$target;
-            var $title = $('#hTitle', $target);
-            return $title.val();
-        }, 
-
-        //获取content
-        getContent: function (){
-            var $target = this.$target;
-            var $content = $('#hContent', $target);
-            return $content.val();
         }
     });
 
