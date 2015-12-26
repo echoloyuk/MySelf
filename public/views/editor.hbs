@@ -1,7 +1,8 @@
 <div class="admin-editor">
     <div class="admin-editor-ctrl-panel">
         <div class="ctrl-list">
-            <div class="ctrl-item"></div>
+            <div class="ctrl-item">帮助</div>
+            <div class="ctrl-item" id="submit">发布</div>
         </div>
     </div>
     <div id="editor" class="editor"></div>  
@@ -11,6 +12,23 @@ seajs.use(['HelloWorld'], function (HelloWorld){
     $(function (){
         var e = new HelloWorld($('#editor'));
         e.init();
+        $('#submit').on('click', function (){
+            var title = e.getTitle(),
+                content = e.getContent();
+            var data = {
+                title: title,
+                article: content
+            };
+            $.ajax({
+                type:'POST',
+                url: '/admin/doPostArticle',
+                dataType: 'json',
+                success: function (res){
+                    console.log(1);
+                },
+                data:data
+            });
+        });
     });
 });
 </script>

@@ -9,6 +9,7 @@
             <div class="login-input">
                 <input type="password" class="input" name="password" placeholder="密码">
             </div>
+            <div class="login-error" id="error"></div>
             <div class="login-submit" id="login">登录</div>
         </form>
     </div>
@@ -16,24 +17,19 @@
 
 
 <script type="text/javascript">
-seajs.use(['Dialog'], function (Dialog){
+seajs.use(['jquery'], function (Dialog){
     $(function (){
-        var d = new Dialog;
-        var showDialog = function (info){
-            d.message = info;
-            d.onClose = function (){
-                clearTimeout(window.dialogTimmer);
-            }
-            d.show();
-            clearTimeout(window.dialogTimmer);
-            window.dialogTimmer = setTimeout(function (){
-                d.hide();
-            }, 2000);
-        };
         $('#login').on('click', function (){
             var username = $('input[name="username"]').val(),
                 password = $('input[name="password"]').val();
-            var info = ''
+            var showError = function (msg){
+                var $error = $('#error');
+                $error.html(msg).show();
+            }
+            var hideError = function (){
+                $('#error').hide();
+            }
+            var info = '';
             if (!username){
                 info += '用户名为空；';
             }
@@ -41,8 +37,10 @@ seajs.use(['Dialog'], function (Dialog){
                 info += '密码为空';
             }
             if (info){
-                showDialog(info);
+                showError(info);
                 return;
+            } else {
+                hideError();
             }
             $.ajax({
                 type:'POST',
@@ -51,9 +49,10 @@ seajs.use(['Dialog'], function (Dialog){
                 success: function (result){
                     result = (result.stat ? result : $.parseJSON(result));
                     if (result.stat === 'success'){
+                        hideError();
                         $('#form').submit();
                     } else {
-                        showDialog('用户名或密码错误');
+                        showError('用户名或密码错误');
                     }
                 },
                 complete: function (){
@@ -64,7 +63,7 @@ seajs.use(['Dialog'], function (Dialog){
                     username: username,
                     password: password
                 }
-            })
+            });
         });
     });
 });
