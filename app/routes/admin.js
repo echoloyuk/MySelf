@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var user = require('../module/user');
-var article = require('../module/article');
+var user = require('../module/user')
 
 /* GET editor. */
 router.get('/editor', function(req, res, next) {
@@ -36,27 +35,6 @@ router.post('/doLogin', function (req, res, next){
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(info));
     });
-});
-
-/* submit article */
-router.post('/doPostArticle', function (req, res, next){
-    var session = req.session;
-    var username = session.username,
-        title = req.body.title,
-        content = req.body.article;
-    var data = {
-        title: title,
-        article: content,
-        user: username
-    };
-    article.setArticle(data, function (result){
-        res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(result));
-    }, function (err){
-        res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(err));
-    })
-
 });
 
 /* GET welcome */
