@@ -18,7 +18,7 @@ article.setArticle = function (article, onSucc, onErr){
     }
     var _user = article.user,
         title = article.title,
-        article = article.article,
+        article = util.sqlFilter(article.article),
         category = 1,
         date = util.getDateString(new Date),
         update = date,
@@ -50,17 +50,19 @@ article.setArticle = function (article, onSucc, onErr){
                         '0)';
             conn.query(sql, function (err){
                 if (err){
+                    console.log(err);
                     result.stat = 'error';
-                    result.info = '插入数据库失败';
+                    result.info = '文章插入数据库错误';
                     onErr.call(this, result);
                     return;
                 }
                 result.stat = 'success';
+                result.info = '文章插入成功'
 
                 onSucc.call(this, result);
             });
         }
-    ])
+    ]);
 };
 
 module.exports = article;

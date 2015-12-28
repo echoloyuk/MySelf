@@ -8,23 +8,42 @@
     <div id="editor" class="editor"></div>  
 </div>
 <script type="text/javascript">
-seajs.use(['HelloWorld'], function (HelloWorld){
+seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
     $(function (){
         var e = new HelloWorld($('#editor'));
         e.init();
         $('#submit').on('click', function (){
+            var $this = $(this);
+            if ($this.hasClass('disabled')){
+                return;
+            }
             var title = e.getTitle(),
                 content = e.getContent();
             var data = {
                 title: title,
                 article: content
             };
+
+            var d = new Dialog;
+            $this.addClass('disabled');
+
             $.ajax({
                 type:'POST',
                 url: '/admin/doPostArticle',
                 dataType: 'json',
                 success: function (res){
-                    console.log(1);
+                    isSubmit = true;
+                    
+                    if (res.stat === 'success'){
+                        d.defaultOpen('发布成功');
+                        e.clearEditor();
+                        e.toPreview();
+                    } else {
+                        d.defaultOpen(res.info);
+                    }
+                },
+                complete: function (){
+                    $this.removeClass('disabled');
                 },
                 data:data
             });

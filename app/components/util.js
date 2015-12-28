@@ -16,4 +16,13 @@ util.getDateString = function (date){
     return (year + '-' + month + '-' + day  + ' ' + hour + ':' + minute + ':' + seconds);
 }
 
+util.sqlFilter = function (str){
+    if (!str){
+        return "";
+    }
+    str = str.replace(/"/g, '\\"');
+    str = str.replace(/'/g, '\\');
+    return str;
+}
+
 module.exports = util;

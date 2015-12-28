@@ -91,6 +91,20 @@ define(function (require, exports, module){
                 this.onClose.call(this);
             }
             this._mask.hide();
+
+            //针对默认的开启方法。
+            clearTimeout(window._MySelfDialogTimmer);
+        },
+
+        //默认的窗口开启方法
+        defaultOpen: function (message, dur){
+            clearTimeout(window._MySelfDialogTimmer);
+            this.message = message;
+            this.show();
+            var _this = this;
+            window._MySelfDialogTimmer = setTimeout(function (){
+                _this.hide();
+            }, (dur || 2000));
         }
 
     });

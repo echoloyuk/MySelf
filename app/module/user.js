@@ -49,9 +49,13 @@ user.loginAuth = function (user, pass, onSucc, onErr){
         }
         if (rows.length === 1){
             rows = rows; //该步骤处理module，只是vo与数据库相同
-            onSucc.call(this, rows, fields);
+            onSucc.call(this, rows[0], fields);
         } else {
-            onErr.call(this, rows, fields);
+            var err = {
+                stat: 'error',
+                info: '查找用户错误'
+            };
+            onErr.call(this, err);
         }
     });
 };

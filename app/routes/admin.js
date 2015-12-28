@@ -19,9 +19,9 @@ router.post('/doLogin', function (req, res, next){
     var password = req.body.password;
     console.log(username + ':' + password);
 
-    user.loginAuth(username, password, function (rows){
+    user.loginAuth(username, password, function (result){
         var session = req.session;
-        session['username'] = rows[0]['username'];
+        session['username'] = result['username'];
         var info = {
             stat: 'success'
         }
@@ -44,6 +44,23 @@ router.post('/doPostArticle', function (req, res, next){
     var username = session.username,
         title = req.body.title,
         content = req.body.article;
+
+    var flag = false;
+    if (!title){
+        flag = true;
+    }
+    if (!content){
+        flag = true;
+    }
+    if (flag){
+        var err = {
+            stat: 'error',
+            info: '标题和正文不能为空'
+        };
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(err));
+        return;
+    }
     var data = {
         title: title,
         article: content,
