@@ -204,9 +204,7 @@ body {
   bottom: 0;
   overflow: hidden;
 }
-[0x7FFD44445F80] ANOMALY: meaningless REX prefix used
-[0x7FFD412A1480] ANOMALY: meaningless REX prefix used
-[0x7FFD411F6AA0] ANOMALY: meaningless REX prefix used
-[0x7FFD41244190] ANOMALY: meaningless REX prefix used
-[0x7FFD44403E50] ANOMALY: use of REX.w is meaningless (default operand size is 64)
-[0x7FFD44407500] ANOMALY: use of REX.w is meaningless (default operand size is 64)
+.admin-editor #editor #hContent {
+  font-size: 14px;
+  line-height: 1.6em;
+}
