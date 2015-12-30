@@ -668,8 +668,8 @@ define(function (require, exports, module){
             if (!_cache){
                 return false;
             }
-            _cache['HelloWorldTitle'] = null;
-            _cache['HelloWorldContent'] = null;
+            _cache['HelloWorldTitle'] = '';
+            _cache['HelloWorldContent'] = '';
             return true;
         },
 
