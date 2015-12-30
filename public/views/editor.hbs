@@ -12,6 +12,8 @@ seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
     $(function (){
         var e = new HelloWorld($('#editor'));
         e.init();
+        $('#editor #hPreview').addClass('myself-content');
+
         $('#submit').on('click', function (){
             var $this = $(this);
             if ($this.hasClass('disabled')){

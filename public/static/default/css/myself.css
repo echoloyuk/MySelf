@@ -13,6 +13,97 @@ body {
   font-size: 14px;
   color: #555;
 }
+/* 正文部分样式 */
+.myself-content {
+  font-size: 16px;
+}
+.myself-content h1,
+.myself-content h2,
+.myself-content h3,
+.myself-content h4,
+.myself-content h5,
+.myself-content h6 {
+  font-weight: bold;
+  margin: 20px 0;
+}
+.myself-content h1 {
+  font-size: 24px;
+}
+.myself-content h2 {
+  font-size: 20px;
+}
+.myself-content h3 {
+  font-size: 18px;
+}
+.myself-content h4,
+.myself-content h5,
+.myself-content h6 {
+  font-size: 16px;
+}
+.myself-content p {
+  margin: 1.6em 0 2em 0;
+  font-size: 16px;
+  line-height: 1.8em;
+}
+.myself-content img {
+  margin: 1em 0;
+  max-width: 98%;
+}
+.myself-content a {
+  color: #b03a3a;
+  text-decoration: underline;
+}
+.myself-content a:hover {
+  color: #df8282;
+}
+.myself-content a:active {
+  color: #986a6a;
+}
+.myself-content a:link {
+  color: #9c7d7d;
+}
+.myself-content em {
+  color: #b03a3a;
+}
+.myself-content strong {
+  color: #b03a3a;
+  font-weight: bold;
+}
+.myself-content ul,
+.myself-content ol {
+  margin: 0;
+  padding-left: 1.6em;
+}
+.myself-content ul li,
+.myself-content ol li {
+  line-height: 1.6em;
+}
+.myself-content pre {
+  background-color: #e8e8e8;
+  padding: 1em;
+  border-radius: 2px;
+}
+.myself-content pre code {
+  font-family: "Consolas", "Courier New", sans-serif;
+  line-height: 1.6em;
+  padding: 0;
+  background: none;
+}
+.myself-content code {
+  font-family: "Consolas", "Courier New", sans-serif;
+  line-height: 1.6em;
+  padding: .1em .2em;
+  background-color: #e8e8e8;
+}
+.myself-content hr {
+  height: 0;
+  border: none;
+  border-bottom: 1px solid #555;
+  margin: 8px 0;
+}
+.myself-content blockquote {
+  margin: 2em 0 2em 2em;
+}
 /* 控制台 */
 .dashboard {
   width: 100%;
@@ -204,7 +295,7 @@ body {
   bottom: 0;
   overflow: hidden;
 }
-.admin-editor #editor #hContent {
-  font-size: 14px;
-  line-height: 1.6em;
+.admin-editor .h-text-content-title {
+  font-size: 32px!important;
+  margin-bottom: 40px;
 }
