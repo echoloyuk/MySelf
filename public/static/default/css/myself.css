@@ -252,27 +252,27 @@ body {
 }
 .admin-editor .admin-editor-ctrl-panel {
   position: absolute;
-  bottom: 0;
+  top: 0;
+  left: 0;
   right: 46%;
-  height: 30px;
-  z-index: 20;
+  height: 40px;
   padding-right: 30px;
   z-index: 200;
   box-sizing: border-box;
+  background-color: #808080;
 }
 .admin-editor .admin-editor-ctrl-panel .ctrl-list {
-  height: 30px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
   float: right;
 }
 .admin-editor .admin-editor-ctrl-panel .ctrl-list .ctrl-item {
   display: inline-block;
-  color: #555;
+  color: #fff;
   padding: 0 10px;
-  height: 30px;
-  line-height: 30px;
+  height: 40px;
+  line-height: 40px;
   cursor: pointer;
-  background-color: #dedede;
   font-size: 14px;
   transition: all .2s;
   -webkit-user-select: none;
@@ -294,6 +294,19 @@ body {
   right: 0;
   bottom: 0;
   overflow: hidden;
+}
+.admin-editor #editor {
+  /* 为了页面样式，修改编辑器样式 */
+}
+.admin-editor #editor .h-title-panel {
+  margin-top: 40px;
+}
+.admin-editor #editor .h-content-panel {
+  top: 150px;
+}
+.admin-editor #editor #hTitle,
+.admin-editor #editor #hContent {
+  color: #555;
 }
 .admin-editor .h-text-content-title {
   font-size: 32px!important;

@@ -263,27 +263,27 @@ html, body{
     height:100%;
     .admin-editor-ctrl-panel{
         position:absolute;
-        bottom:0;
+        top:0;
+        left:0;
         right:46%;
-        height:30px;
-        z-index:20;
+        height:40px;
         padding-right:30px;
         z-index:200;
         box-sizing:border-box;
+        background-color:#808080;
 
         .ctrl-list{
-            height:30px;
-            line-height:30px;
+            height:40px;
+            line-height:40px;
             float:right;
 
             .ctrl-item{
                 display:inline-block;
-                color:@font-color;
+                color:#fff;
                 padding:0 10px;
-                height:30px;
-                line-height:30px;
+                height:40px;
+                line-height:40px;
                 cursor:pointer;
-                background-color:#dedede;
                 font-size:@sys-font-size;
                 .transition;
                 .user-select;
@@ -308,7 +308,15 @@ html, body{
     }
 
     #editor{
-        #hContent{
+        /* 为了页面样式，修改编辑器样式 */
+        .h-title-panel{
+            margin-top:40px;
+        }
+        .h-content-panel{
+            top:150px;
+        }
+        #hTitle, #hContent{
+            color:@font-color;
         }
     }
     .h-text-content-title{
