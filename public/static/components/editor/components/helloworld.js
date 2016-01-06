@@ -537,9 +537,11 @@ define(function (require, exports, module){
                     scrollTop: top - 100 //-100的原因是距离上边距保持100px的距离
                 }, 200);
             } else {
+                /* 找不到关键字就不动了。
                 $prev.stop().animate({
                     scrollTop: $('.h-text-content', $prev).height()
                 }, 200);
+                */
             }
         },
 

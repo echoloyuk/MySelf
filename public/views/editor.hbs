@@ -1,8 +1,8 @@
 <div class="admin-editor">
     <div class="admin-editor-ctrl-panel">
         <div class="ctrl-list">
-            <div class="ctrl-item">帮助</div>
             <div class="ctrl-item" id="submit">发布</div>
+            <div class="ctrl-item">帮助</div>
         </div>
     </div>
     <div id="editor" class="editor"></div>  
@@ -11,6 +11,7 @@
 seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
     $(function (){
         var e = new HelloWorld($('#editor'));
+        e.imgUrl = '/admin/doPostImage';
         e.init();
         $('#editor #hPreview').addClass('myself-content');
 

@@ -256,7 +256,7 @@ body {
   left: 0;
   right: 46%;
   height: 40px;
-  padding-right: 30px;
+  padding-left: 20px;
   z-index: 200;
   box-sizing: border-box;
   background-color: #808080;
@@ -264,7 +264,7 @@ body {
 .admin-editor .admin-editor-ctrl-panel .ctrl-list {
   height: 40px;
   line-height: 40px;
-  float: right;
+  float: left;
 }
 .admin-editor .admin-editor-ctrl-panel .ctrl-list .ctrl-item {
   display: inline-block;

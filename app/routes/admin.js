@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var user = require('../module/user');
 var article = require('../module/article');
+var util = require('../components/util');
+var multiparty = require('multiparty');
+var fs = require('fs');
 
 /* GET editor. */
 router.get('/editor', function(req, res, next) {
@@ -72,8 +75,48 @@ router.post('/doPostArticle', function (req, res, next){
     }, function (err){
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(err));
-    })
+    });
+});
 
+/* submit image to sys */
+router.post('/doPostImage', function (req, res, next){
+    console.log('image uploading');
+    var imgForm = new multiparty.Form();
+    var result = {};
+    imgForm.parse(req, function (err, fields, files){
+        if (err){
+            result = {
+                stat: 'error',
+                info: '图片上传错误'
+            };
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(err));
+            return;
+        }
+        var tmpPath = files['hImgUpLoadInput'][0]['path'].replace('//', '/'),
+            fileName = files['hImgUpLoadInput'][0]['originalFilename'].replace('//', '/');
+
+        console.log(tmpPath);
+
+        fs.rename(tmpPath, './public/static/uploads/' + fileName, function (err){
+            console.log(2);
+            if (err){
+                result = {
+                    stat: 'error',
+                    info: '图片移动错误'
+                };
+                console.log(3);
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(err));
+                return;
+            }
+            console.log(4);
+            res.send('/static/uploads/test.jpg');
+        });
+        
+        
+    });
+    
 });
 
 /* GET welcome */
