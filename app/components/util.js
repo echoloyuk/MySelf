@@ -3,7 +3,6 @@
  */
 var util = {};
 var count = 0; //用来标记uid中的唯一标示。
-var fs = require('fs');
 
 util.getDateString = function (date){
     if (!date){
@@ -33,11 +32,6 @@ util.getImageName = function (namespace){
     result += '' + date.getTime() + Math.floor(Math.random() * 10000) + count;
     count++;
     return result;
-}
-
-util.copy = function (src, dst){
-    fs.renameSync(src, dst);
-    //fs.writeFileSync(dst, fs.readFileSync(src));
 }
 
 module.exports = util;
