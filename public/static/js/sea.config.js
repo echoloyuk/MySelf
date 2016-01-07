@@ -5,7 +5,7 @@ seajs.config({
     alias: {
         //init: 'init.js',
         jquery: 'js/jquery.js',
-        theme: theme + '/css/myself.css',
+        theme: theme + '/css/main.css',
 
         //helloworld
         marked: 'components/editor/marked.js', //markdown parser

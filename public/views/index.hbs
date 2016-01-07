@@ -1,17 +1,5 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
-<div id="test">open</div>
-
+<p>{{subtitle}}</p>
 
 <script type="text/javascript">
-seajs.use(['Dialog'], function (Dialog){
-    $(function (){
-        var d = new Dialog();
-        d.message = 'test';
-
-        $('#test').on('click', function (){
-            d.show();
-        });
-    });
-});
 </script>

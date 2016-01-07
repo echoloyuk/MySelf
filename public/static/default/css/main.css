@@ -1,0 +1,315 @@
+/* 控制台及系统样式 */
+/* LESS的基本样式 */
+/* include */
+/* 变量 */
+/* 公用的函数css */
+/* 公用按钮 */
+/* 样式 */
+html,
+body {
+  background-color: #eee;
+  font-family: 'Microsoft YaHei', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+/* 正文部分样式 */
+.myself-content {
+  font-size: 16px;
+}
+.myself-content h1,
+.myself-content h2,
+.myself-content h3,
+.myself-content h4,
+.myself-content h5,
+.myself-content h6 {
+  font-weight: bold;
+  margin: 20px 0;
+}
+.myself-content h1 {
+  font-size: 24px;
+}
+.myself-content h2 {
+  font-size: 20px;
+}
+.myself-content h3 {
+  font-size: 18px;
+}
+.myself-content h4,
+.myself-content h5,
+.myself-content h6 {
+  font-size: 16px;
+}
+.myself-content p {
+  margin: 1.6em 0 2em 0;
+  font-size: 16px;
+  line-height: 1.8em;
+}
+.myself-content img {
+  margin: 1em 0;
+  max-width: 98%;
+}
+.myself-content a {
+  color: #b03a3a;
+  text-decoration: underline;
+}
+.myself-content a:hover {
+  color: #df8282;
+}
+.myself-content a:active {
+  color: #986a6a;
+}
+.myself-content a:link {
+  color: #9c7d7d;
+}
+.myself-content em {
+  color: #b03a3a;
+}
+.myself-content strong {
+  color: #b03a3a;
+  font-weight: bold;
+}
+.myself-content ul,
+.myself-content ol {
+  margin: 0;
+  padding-left: 1.6em;
+}
+.myself-content ul li,
+.myself-content ol li {
+  line-height: 1.6em;
+}
+.myself-content pre {
+  background-color: #e8e8e8;
+  padding: 1em;
+  border-radius: 2px;
+}
+.myself-content pre code {
+  font-family: "Consolas", "Courier New", sans-serif;
+  line-height: 1.6em;
+  padding: 0;
+  background: none;
+}
+.myself-content code {
+  font-family: "Consolas", "Courier New", sans-serif;
+  line-height: 1.6em;
+  padding: .1em .2em;
+  background-color: #e8e8e8;
+}
+.myself-content hr {
+  height: 0;
+  border: none;
+  border-bottom: 1px solid #555;
+  margin: 8px 0;
+}
+.myself-content blockquote {
+  margin: 2em 0 2em 2em;
+}
+/* 控制台 */
+.dashboard {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+.dashboard .left-side {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  font-size: 14px;
+  color: #eee;
+  background-color: #484848;
+  box-sizing: border-box;
+  box-shadow: 0 0 3px #000;
+  z-index: 100;
+}
+.dashboard .left-side .logo-panel {
+  padding: 16px 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #3c3c3c;
+}
+.dashboard .left-side .nav-panel .nav-inner .nav-item {
+  padding: 10px;
+  line-height: 1.5em;
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+.dashboard .left-side .nav-panel .nav-inner .nav-item:hover {
+  background-color: #6f6f6f;
+}
+.dashboard .left-side .nav-panel .nav-inner .nav-item.current {
+  background-color: #aaa;
+  color: #444;
+}
+.dashboard .left-side .bottom-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.dashboard .left-side .bottom-panel .bottom-inner .bottom-item {
+  padding: 10px;
+  line-height: 1.5em;
+  cursor: pointer;
+  transition: all .2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+.dashboard .left-side .bottom-panel .bottom-inner .bottom-item:hover {
+  background-color: #999;
+}
+.dashboard .left-side .bottom-panel .bottom-inner .bottom-item:active {
+  background-color: #ccc;
+}
+.dashboard .right-side {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  left: 100px;
+  z-index: 99;
+}
+.dashboard .right-side .right-frame {
+  width: 100%;
+  height: 100%;
+}
+/* welcome */
+.welcome {
+  padding: 10px;
+}
+/* login */
+.login .login-panel {
+  width: 400px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  margin-left: -200px;
+  margin-top: -150px;
+}
+.login .login-panel .login-title {
+  text-align: center;
+  font-size: 56px;
+}
+.login .login-panel .login-subtitle {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+.login .login-panel .login-input {
+  text-align: center;
+  margin: 20px 0;
+}
+.login .login-panel .login-input .input {
+  border: 1px solid #ccc;
+  height: 40px;
+  line-height: 40px;
+  width: 280px;
+  font-size: 16px;
+  color: #555;
+  box-sizing: border-box;
+  padding: 0 10px;
+  outline: none;
+  font-family: 'Microsoft YaHei', sans-serif;
+  transition: all .2s;
+}
+.login .login-panel .login-input .input:focus {
+  box-shadow: 0 0 4px #aaaaaa;
+  background-color: #fff;
+}
+.login .login-panel .login-error {
+  margin: 0 auto;
+  width: 280px;
+  font-size: 12px;
+  color: #c84c4c;
+  display: none;
+}
+.login .login-panel .login-submit {
+  background-color: #484848;
+  height: 40px;
+  line-height: 40px;
+  width: 280px;
+  margin: 40px auto;
+  color: #eee;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s;
+}
+.login .login-panel .login-submit:hover {
+  background-color: #6f6f6f;
+}
+.admin-editor {
+  width: 100%;
+  height: 100%;
+}
+.admin-editor .admin-editor-ctrl-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 46%;
+  height: 40px;
+  padding-right: 30px;
+  z-index: 200;
+  box-sizing: border-box;
+  background-color: #808080;
+}
+.admin-editor .admin-editor-ctrl-panel .ctrl-list {
+  height: 40px;
+  line-height: 40px;
+  float: right;
+}
+.admin-editor .admin-editor-ctrl-panel .ctrl-list .ctrl-item {
+  display: inline-block;
+  color: #fff;
+  padding: 0 10px;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all .2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+.admin-editor .admin-editor-ctrl-panel .ctrl-list .ctrl-item:hover {
+  color: #eee;
+  background-color: #aaa;
+}
+.admin-editor .admin-editor-ctrl-panel .ctrl-list .ctrl-item:active {
+  background-color: #888;
+}
+.admin-editor .editor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.admin-editor #editor {
+  /* 为了页面样式，修改编辑器样式 */
+}
+.admin-editor #editor .h-title-panel {
+  margin-top: 40px;
+}
+.admin-editor #editor .h-content-panel {
+  top: 150px;
+}
+.admin-editor #editor #hTitle,
+.admin-editor #editor #hContent {
+  color: #555;
+}
+.admin-editor .h-text-content-title {
+  font-size: 32px!important;
+  margin-bottom: 40px;
+}
