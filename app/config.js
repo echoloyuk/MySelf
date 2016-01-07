@@ -11,7 +11,12 @@ var config = {
         password: 'echo890202',
         database: 'myself',
         suffix: 'mc_'
+    },
+    upload: {
+        uploadDir: './public/static/uploads/',
+        uploadUrl: '/static/uploads/'
     }
 }
+
 
 module.exports = config;

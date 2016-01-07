@@ -2,12 +2,21 @@ var express = require('express');
 var router = express.Router();
 var user = require('../module/user');
 var article = require('../module/article');
+var image = require('../module/image');
 var util = require('../components/util');
 var multiparty = require('multiparty');
 var fs = require('fs-extra');
+var async = require('async');
 
 /* GET editor. */
 router.get('/editor', function(req, res, next) {
+    
+    //为了保证在写文章时能顺利保存图片，因此需要session中保存临时的一个id，用来记录图片的对应关系
+    var session = req.session;
+    if (!session['articleTmpId']){
+        session['articleTmpId'] = util.getUID('myself');
+    }
+
     res.render('editor', { title: 'Express' });
 });
 
@@ -69,20 +78,35 @@ router.post('/doPostArticle', function (req, res, next){
         article: content,
         user: username
     };
-    article.setArticle(data, function (result){
-        res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(result));
-    }, function (err){
-        res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(err));
-    });
+    async.waterfall([
+        function (next){
+            article.setArticle(data, function (result, articleId){
+                next(null, articleId);
+            }, function (err){
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(err));
+            });
+        }, function (articleId, next){
+            var tmpId = session['articleTmpId'];
+            image.saveImage(tmpId, articleId, function (res){
+                next(null);
+            }, function (err){
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(err));
+            });
+        }, function (next){
+            session['articleTmpId'] = '';
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify({stat:'success', info:'文章发布成功'}));
+        }
+    ]);
 });
 
 /* submit image to sys */
 router.post('/doPostImage', function (req, res, next){
     console.log('image uploading');
     var imgForm = new multiparty.Form();
-    var result = {};
+    var session = req.session;
     imgForm.parse(req, function (err, fields, files){
         if (err){
             result = {
@@ -93,21 +117,12 @@ router.post('/doPostImage', function (req, res, next){
             res.send(JSON.stringify(result));
             return;
         }
-        var tmpPath = files['hImgUpLoadInput'][0]['path'].replace('//', '/'),
-            fileName = files['hImgUpLoadInput'][0]['originalFilename'],
-            filePath = './public/static/uploads/' + fileName;
 
-        fs.move(tmpPath, './public/static/uploads/' + fileName, function (err){
-            if (err){
-                result = {
-                    stat: 'error',
-                    info: '图片移动错误'
-                };
-                res.setHeader('Content-Type', 'application/json');
-                res.send(JSON.stringify(result));
-                return;
-            }
-            res.send('/static/uploads/' + fileName);
+        image.setImage(files['hImgUpLoadInput'], session['articleTmpId'], function (path){
+            res.send(path);
+        }, function (res){
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(res));
         });
     });
     

@@ -26,10 +26,18 @@ util.sqlFilter = function (str){
     return str;
 }
 
-util.getImageName = function (namespace){
+util.getImageName = function (filename){
     var date = new Date;
-    var result = namespace || 'MySelfImg';
-    result += '' + date.getTime() + Math.floor(Math.random() * 10000) + count;
+    var result = 'myself' + date.getTime() + Math.floor(Math.random() * 10000) + count;
+    count++;
+    result += filename.substring(filename.lastIndexOf('.'));
+    return result;
+}
+
+util.getUID = function (name){
+    var date = new Date;
+    var result = (name ? name : '');
+    result += date.getTime() + '' + count;
     count++;
     return result;
 }

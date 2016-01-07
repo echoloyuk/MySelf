@@ -48,7 +48,7 @@ article.setArticle = function (article, onSucc, onErr){
                         update + '", ' +
                         userId + ', ' +
                         '0)';
-            conn.query(sql, function (err){
+            conn.query(sql, function (err, res){
                 if (err){
                     console.log(err);
                     result.stat = 'error';
@@ -59,7 +59,7 @@ article.setArticle = function (article, onSucc, onErr){
                 result.stat = 'success';
                 result.info = '文章插入成功'
 
-                onSucc.call(this, result);
+                onSucc.call(this, result, res.insertId);
             });
         }
     ]);
