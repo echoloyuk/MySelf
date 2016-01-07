@@ -15,6 +15,10 @@ var config = {
     upload: {
         uploadDir: './public/static/uploads/',
         uploadUrl: '/static/uploads/'
+    },
+    blog: {
+        title: 'Loyuk_MaC',
+        subtitle: '悲观的思考，乐观的生活'
     }
 }
 
