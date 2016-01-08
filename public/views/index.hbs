@@ -1,5 +1,85 @@
-<h1>{{title}}</h1>
-<p>{{subtitle}}</p>
+<div class="myself-home">
+    <header class="header">
+        <section class="title">
+            <h1>{{title}}</h1>
+            <h2>{{subtitle}}</h2>
+        </section>
+        <section class="author">
+            <div class="author-img">
+                <img src="{{authorImgUrl}}" alt="author">
+            </div>
+        </section>
+    </header>
+    <main class="main">
+        <div class="article-list">
+            <article class="article">
+                <section class="abstract">
+                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
+                </section>
+                <section class="title">
+                    <span>Benz C200L选购过程</span>
+                    <span class="date">2016-01-05</span>
+                </section>
+            </article>
+            <article class="article">
+                <section class="abstract">
+                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
+                </section>
+                <section class="title">
+                    <span>Benz C200L选购过程</span>
+                    <span class="date">2016-01-05</span>
+                </section>
+            </article>
+            <article class="article">
+                <section class="abstract">
+                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
+                </section>
+                <section class="title">
+                    <span>Benz C200L选购过程</span>
+                    <span class="date">2016-01-05</span>
+                </section>
+            </article>
+            <article class="article">
+                <section class="abstract">
+                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
+                </section>
+                <section class="title">
+                    <span>Benz C200L选购过程</span>
+                    <span class="date">2016-01-05</span>
+                </section>
+            </article>
+            <article class="article">
+                <section class="abstract">
+                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
+                </section>
+                <section class="title">
+                    <span>Benz C200L选购过程</span>
+                    <span class="date">2016-01-05</span>
+                </section>
+            </article> 
+            <article class="article">
+                <section class="abstract">
+                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
+                </section>
+                <section class="title">
+                    <span>Benz C200L选购过程</span>
+                    <span class="date">2016-01-05</span>
+                </section>
+            </article>
+        </div>
+    </main>
+</div>
 
+<hr>
 <script type="text/javascript">
+seajs.use('jquery', function (){
+    $.ajax({
+        url: './getArticleList',
+        data: {page:3},
+        type: 'GET',
+        success: function (rows){
+            console.log(rows);
+        }
+    });
+});
 </script>

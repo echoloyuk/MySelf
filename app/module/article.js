@@ -65,4 +65,33 @@ article.setArticle = function (article, onSucc, onErr){
     ]);
 };
 
+/*
+ * 获取article list, 从start开始取，取count
+ * return [{id:'', title:'', content:'', date:'', user:''}]
+ */
+article.getArticleList = function (start, count, onSucc, onErr){
+    var conn = connection.connect();
+    var sql = 'select ' +
+              'a.id id, a.title title, a.content content, a.update_date date, u.username user ' +
+              'from myself_article a, myself_user u ' +
+              'where a.user_id=u.id ' + 
+              'order by a.id desc ' +
+              'limit ' + start + ',' + count;
+    async.waterfall([
+        function (next){
+            conn.query(sql, function (err, rows, fields){
+                if (err){
+                    console.log(err);
+                    onErr.call(this, {stat:'error', info:'查询文章数据库错误'});
+                    return;
+                }
+                next(null, rows);
+            });
+        }, function (rows, next){
+            onSucc.call(this, rows);
+        }
+    ]);
+}
+
+
 module.exports = article;
