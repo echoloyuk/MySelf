@@ -71,12 +71,15 @@ article.setArticle = function (article, onSucc, onErr){
  */
 article.getArticleList = function (start, count, onSucc, onErr){
     var conn = connection.connect();
-    var sql = 'select ' +
-              'a.id id, a.title title, a.content content, a.update_date date, u.username user ' +
-              'from myself_article a, myself_user u ' +
-              'where a.user_id=u.id ' + 
-              'order by a.id desc ' +
-              'limit ' + start + ',' + count;
+    var sql = 'SELECT ' +
+              'a.id id, a.title title, a.content content, a.update_date date, u.username user, i.url imgUrl ' +
+              'FROM myself_article a ' +
+              'LEFT JOIN myself_user u ON (u.id=a.user_id) ' +
+              'LEFT JOIN myself_img i ON (i.refer_to_article_id=a.id)' +
+              'GROUP BY a.id ' +
+              'ORDER BY a.id desc ' +
+              'LIMIT ' + start + ',' + count;
+    console.log(sql);
     async.waterfall([
         function (next){
             conn.query(sql, function (err, rows, fields){
