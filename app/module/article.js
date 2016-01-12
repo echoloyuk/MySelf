@@ -79,7 +79,6 @@ article.getArticleList = function (start, count, onSucc, onErr){
               'GROUP BY a.id ' +
               'ORDER BY a.id desc ' +
               'LIMIT ' + start + ',' + count;
-    console.log(sql);
     async.waterfall([
         function (next){
             conn.query(sql, function (err, rows, fields){

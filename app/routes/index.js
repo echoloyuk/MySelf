@@ -15,7 +15,7 @@ router.get('/', function(req, res, next){
 /* ajax get article */
 router.get('/getArticleList', function (req, res, next){
 
-    var p = req.query.page;
+    var p = parseInt(req.query.page);
     if (typeof p !== 'number' || p <= 0){
         p = 0;
     }

@@ -1,7 +1,10 @@
 /* 界面部分 */
+@import 'base.less';
+
+
 @media screen and (min-width:1024px){
     .myself-home{
-        .header{
+        header.header{
             height:400px;
             background:#666 url('/static/default/images/title-bg.jpg') no-repeat center bottom;
             color:#fff;
@@ -64,24 +67,79 @@
             .article-list{
                 width:1000px;
                 margin:120px auto;
-                height:1000px;
+                position:relative;
 
                 article.article{
                     box-sizing:border-box;
-                    float:left;
-                    width:310px;
-                    margin:0 10px 20px 10px;
+                    width:313px;
+                    margin:0;
                     padding:0;
+                    margin-bottom:20px;
 
                     section.abstract{
                         padding:30px;
-                        background-color:#ddd;
+                        background-color:#d8d8d8;
                         line-height:2em;
+                        font-size:14px;
+
+                        &::first-letter {
+                            font-size:24px;
+                        }
+                    }
+                    section.abstract-img{
+                        padding:0;
+                        background-color:#ddd;
+
+                        img{
+                            width:100%;
+                            vertical-align:bottom;
+                        }
                     }
                     section.title{
-                        padding:20px;
+                        padding:10px 30px;
                         background-color:#777;
                         color:#fff;
+                        line-height:2em;
+
+                        span.title{
+                            display:block;
+                            font-size:16px;
+                        }
+                        span.date{
+                            display:block;
+                            font-size:12px;
+                            margin-top:.5em;
+                        }
+                    }
+                }
+            }
+        }
+        footer.footer{
+            background-color:#555;
+            display:block;
+            padding:30px 0;
+
+            section.copyright,section.powered{
+                width:1000px;
+                margin:0 auto;
+                color:#fff;
+                font-size:14px;
+                line-height:2em;
+                text-align:center;
+            }
+            section.powered{
+                a.link{
+                    color:#ccc;
+                    text-decoration:none;
+                    margin:0 6px;
+                    .transition;
+
+                    &:hover{
+                        color:#d9d9d9;
+                        text-shadow:0 0 3px;
+                    }
+                    &:linked{
+                        color:#d9d9d9;
                     }
                 }
             }

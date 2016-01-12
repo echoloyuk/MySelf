@@ -11,13 +11,13 @@
         </section>
     </header>
     <main class="main">
-        <div class="article-list">
+        <div class="article-list" id="articleList">
             <article class="article">
-                <section class="abstract">
-                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
+                <section class="abstract-img">
+                    <img src="/static/uploads/myself145222001634692691.png" alt="img" />
                 </section>
                 <section class="title">
-                    <span>Benz C200L选购过程</span>
+                    <span class="title">选购过程选购过程选购过程选购过程选购过程选购过程选购过程</span>
                     <span class="date">2016-01-05</span>
                 </section>
             </article>
@@ -26,60 +26,67 @@
                     <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
                 </section>
                 <section class="title">
-                    <span>Benz C200L选购过程</span>
-                    <span class="date">2016-01-05</span>
-                </section>
-            </article>
-            <article class="article">
-                <section class="abstract">
-                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
-                </section>
-                <section class="title">
-                    <span>Benz C200L选购过程</span>
-                    <span class="date">2016-01-05</span>
-                </section>
-            </article>
-            <article class="article">
-                <section class="abstract">
-                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
-                </section>
-                <section class="title">
-                    <span>Benz C200L选购过程</span>
-                    <span class="date">2016-01-05</span>
-                </section>
-            </article>
-            <article class="article">
-                <section class="abstract">
-                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
-                </section>
-                <section class="title">
-                    <span>Benz C200L选购过程</span>
-                    <span class="date">2016-01-05</span>
-                </section>
-            </article> 
-            <article class="article">
-                <section class="abstract">
-                    <span>选车：由于自己之前开的是高尔夫6，也玩了几年改装，以及个人使用的见解之类的东西。所以我个人选 车，一个是操控，二一个是动力，三一个是配置之类的，反而对空间之类的不是很在乎，够自己使 用就好。上个车开了四年一切都满意，唯独1.4T动力越来越不能满足于我，所以才萌发了换车的念</span>
-                </section>
-                <section class="title">
-                    <span>Benz C200L选购过程</span>
+                    <span class="title">选购过程选购</span>
                     <span class="date">2016-01-05</span>
                 </section>
             </article>
         </div>
     </main>
+    <footer class="footer">
+        <section class="copyright">
+            <span class="copyright">&copy; Copyright {{copyright}} All rights reserved.</span>
+        </section>
+        <section class="powered">
+            <span class="powered">自豪地采用<a href="https://github.com/echoloyuk/MySelf" class="link">MySelf</a></span>
+        </section>
+    </footer>
 </div>
 
-<hr>
+
 <script type="text/javascript">
-seajs.use('jquery', function (){
-    $.ajax({
-        url: './getArticleList',
-        data: {page:3},
-        type: 'GET',
-        success: function (rows){
-            console.log(rows);
-        }
-    });
+seajs.use(['masonry'], function (){
+
+    var loadArticle = function (){
+        var render = function (rows){
+            if (!rows || !rows.length){
+                return;
+            }
+            var cur, str = '', curContent;
+            for (var i = 0, count = rows.length; i < count; i++){
+                cur = rows[i];
+                curContent = cur['content'].substr(0, 100) + ' ......';
+                str += '<article class="article" data-id="' + cur['id'] + '">';
+                if (!cur['imgUrl']){
+                    str += '<section class="abstract"><span>' + curContent + '</span></section>';
+                } else {
+                    str += '<section class="abstract-img"><img width="300" height="300" src="' + cur['imgUrl'] + '" alt="img" /></section>';
+                }
+                str += '<section class="title"><span class="title">' + cur['title'] + '</span><span class="date">' + cur['date'] +'</span></section>';
+                str += '</article>';
+            }
+            var waterfall = {
+                itemSelector:'article.article',
+                columnWidth:'article.article',
+                gutter:20
+            };
+            $('#articleList').empty().append(str).masonry(waterfall);
+            
+            $('#articleList .article img').on('load', function (){
+                $(this).removeAttr('width').removeAttr('height');
+                $('#articleList').masonry(waterfall);
+            });
+
+        };
+        $.ajax({
+            url: './getArticleList',
+            data: {page:3},
+            type: 'GET',
+            success: function (rows){
+                console.log(rows);
+                render(rows);
+            }
+        });
+    }
+    loadArticle();
 });
 </script>

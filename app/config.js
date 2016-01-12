@@ -19,7 +19,8 @@ var config = {
     blog: {
         title: 'Loyuk_MaC',
         subtitle: '悲观的思考，乐观的生活',
-        authorImgUrl: '/static/default/images/author-img.png'
+        authorImgUrl: '/static/default/images/author-img.png',
+        copyright:'Loyuk.MaChi. 2016.'
     }
 }
 
