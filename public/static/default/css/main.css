@@ -7,7 +7,7 @@
 /* 样式 */
 html,
 body {
-  background-color: #eee;
+  background-color: #f1f1f1;
   font-family: 'Microsoft YaHei', sans-serif;
   padding: 0;
   margin: 0;
@@ -265,7 +265,7 @@ body {
     left: 50%;
     margin-left: -80px;
     border-radius: 80px;
-    background-color: #eee;
+    background-color: #f1f1f1;
   }
   .myself-home header.header .author .author-img {
     position: absolute;
@@ -296,6 +296,11 @@ body {
     margin: 0;
     padding: 0;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .myself-home .main .article-list article.article:hover {
+    box-shadow: 0 0 6px;
   }
   .myself-home .main .article-list article.article section.abstract {
     padding: 30px;
@@ -316,7 +321,7 @@ body {
   }
   .myself-home .main .article-list article.article section.title {
     padding: 10px 30px;
-    background-color: #777;
+    background-color: #8a8a8a;
     color: #fff;
     line-height: 2em;
   }
