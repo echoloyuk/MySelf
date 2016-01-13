@@ -225,23 +225,23 @@ body {
 /* 前端界面样式 */
 /* 界面部分 */
 @media screen and (min-width: 1024px) {
-  .myself-home header.header {
+  header.header {
     height: 400px;
     background: #666 url('/static/default/images/title-bg.jpg') no-repeat center bottom;
     color: #fff;
     position: relative;
   }
-  .myself-home header.header h1,
-  .myself-home header.header h2,
-  .myself-home header.header h3,
-  .myself-home header.header h4,
-  .myself-home header.header h5,
-  .myself-home header.header h6 {
+  header.header h1,
+  header.header h2,
+  header.header h3,
+  header.header h4,
+  header.header h5,
+  header.header h6 {
     padding: 0;
     margin: 0;
     font-weight: normal;
   }
-  .myself-home header.header .title {
+  header.header .title {
     position: absolute;
     width: 1000px;
     height: 200px;
@@ -250,14 +250,14 @@ body {
     margin: -100px 0 0 -500px;
     text-align: center;
   }
-  .myself-home header.header .title h1 {
+  header.header .title h1 {
     font-size: 32px;
     line-height: 3em;
   }
-  .myself-home header.header .title h2 {
+  header.header .title h2 {
     font-size: 16px;
   }
-  .myself-home header.header .author {
+  header.header .author {
     position: absolute;
     width: 160px;
     height: 160px;
@@ -267,7 +267,7 @@ body {
     border-radius: 80px;
     background-color: #f1f1f1;
   }
-  .myself-home header.header .author .author-img {
+  header.header .author .author-img {
     position: absolute;
     width: 140px;
     height: 140px;
@@ -279,16 +279,44 @@ body {
     border: none;
     overflow: hidden;
   }
-  .myself-home header.header .author .author-img img {
+  header.header .author .author-img img {
     width: 100%;
     height: 100%;
     max-width: 200px;
     max-height: 200px;
   }
+  footer.footer {
+    background-color: #555;
+    display: block;
+    padding: 30px 0;
+  }
+  footer.footer section.copyright,
+  footer.footer section.powered {
+    width: 1000px;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 14px;
+    line-height: 2em;
+    text-align: center;
+  }
+  footer.footer section.powered a.link {
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 6px;
+    transition: all .2s;
+  }
+  footer.footer section.powered a.link:hover {
+    color: #d9d9d9;
+    text-shadow: 0 0 3px;
+  }
+  footer.footer section.powered a.link:linked {
+    color: #d9d9d9;
+  }
   .myself-home .main .article-list {
     width: 1000px;
-    margin: 120px auto;
+    margin: 120px auto 40px;
     position: relative;
+    left: 10px;
   }
   .myself-home .main .article-list article.article {
     box-sizing: border-box;
@@ -300,7 +328,7 @@ body {
     transition: all .2s;
   }
   .myself-home .main .article-list article.article:hover {
-    box-shadow: 0 0 6px;
+    box-shadow: 0 0 6px #000;
   }
   .myself-home .main .article-list article.article section.abstract {
     padding: 30px;
@@ -321,9 +349,12 @@ body {
   }
   .myself-home .main .article-list article.article section.title {
     padding: 10px 30px;
-    background-color: #8a8a8a;
-    color: #fff;
+    background-color: #fff;
+    color: #555;
     line-height: 2em;
+    box-sizing: border-box;
+    border: 1px solid #d8d8d8;
+    border-top: none;
   }
   .myself-home .main .article-list article.article section.title span.title {
     display: block;
@@ -334,32 +365,63 @@ body {
     font-size: 12px;
     margin-top: .5em;
   }
-  .myself-home footer.footer {
-    background-color: #555;
-    display: block;
-    padding: 30px 0;
-  }
-  .myself-home footer.footer section.copyright,
-  .myself-home footer.footer section.powered {
+  .myself-home .main .paging {
+    margin: 30px auto;
     width: 1000px;
-    margin: 0 auto;
-    color: #fff;
-    font-size: 14px;
-    line-height: 2em;
+  }
+  .paging-panel {
     text-align: center;
   }
-  .myself-home footer.footer section.powered a.link {
-    color: #ccc;
-    text-decoration: none;
-    margin: 0 6px;
+  .paging-panel .paging-button,
+  .paging-panel .paging-num {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    font-size: 16px;
+    color: #eee;
+    margin: 0 4px;
+  }
+  .paging-panel .paging-button {
+    background-color: #888;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
     transition: all .2s;
   }
-  .myself-home footer.footer section.powered a.link:hover {
-    color: #d9d9d9;
-    text-shadow: 0 0 3px;
+  .paging-panel .paging-button:hover {
+    background-color: #555;
   }
-  .myself-home footer.footer section.powered a.link:linked {
-    color: #d9d9d9;
+  .paging-panel .paging-button:active {
+    background-color: #000;
+  }
+  .paging-panel .paging-num {
+    background-color: #ccc;
+  }
+  .paging-panel .paging-input-panel {
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: 4px;
+  }
+  .paging-panel .paging-input-panel .paging-button {
+    margin-left: 0;
+  }
+  .paging-panel .paging-input-panel input.paging-input {
+    height: 32px;
+    line-height: 32px;
+    box-sizing: border-box;
+    border: 1px solid #888;
+    border-right: 0;
+    outline: none;
+    display: inline-block;
+    vertical-align: bottom;
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-size: 16px;
+    color: #555;
+    width: 80px;
+    padding: 0 8px;
   }
 }
 /* 正文部分样式 */

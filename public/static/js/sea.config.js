@@ -21,6 +21,7 @@ seajs.config({
         //components
         Dialog: 'js/dialog.js',
         Mask: 'js/mask.js',
+        Paging: 'js/paging.js',
 
         //components css
         DialogCSS: theme + '/css/dialog.css',
