@@ -15,17 +15,18 @@ define(function (require, exports, module){
                 $cur = $('.paging-num.cur', $target),
                 $input = $('input.paging-input', $target),
                 $goto = $('.paging-button.goto', $target);
-            var curPage = parseInt(this.onPage),
+            var curPage = parseInt(this.curPage),
                 totalPage = parseInt(this.totalPage),
                 eventNamespce = '.Paging';
             var _this = this;
-
+            
             if (!$.isNumeric(curPage) || curPage < 1){
                 curPage = 1;
             }
             if (!$.isNumeric(totalPage) || totalPage < 1){
                 totalPage = 1;
             }
+
             $cur.html(curPage);
 
             $prev.off(eventNamespce);

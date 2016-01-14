@@ -16,14 +16,22 @@ router.get('/', function(req, res, next){
 router.get('/getArticleList', function (req, res, next){
 
     var p = parseInt(req.query.page);
-    if (typeof p !== 'number' || p <= 0){
-        p = 0;
+    var count = CONFIG.blog.homeArticleCount;
+    if (typeof p !== 'number' || p <= 1){
+        p = 1;
     }
-    console.log('page:' + p);
+    var curPage = p;
+    p = (p - 1) * count;
 
-    article.getArticleList(0, 10, function (rows){
+    article.getArticleList(p, count, function (rows, total){
+        var totalPage = Math.floor(total / count) + 1;
+        var data = {
+            article: rows,
+            totalPage: totalPage,
+            curPage: curPage
+        };
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify(rows));
+        res.send(JSON.stringify(data));
     }, function (err){
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(err));

@@ -312,6 +312,9 @@ body {
   footer.footer section.powered a.link:linked {
     color: #d9d9d9;
   }
+  .myself-home .main {
+    min-height: 500px;
+  }
   .myself-home .main .article-list {
     width: 1000px;
     margin: 120px auto 40px;

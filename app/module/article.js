@@ -74,7 +74,7 @@ article.getArticleList = function (start, count, onSucc, onErr){
     var sql = 'SELECT ' +
               'a.id id, a.title title, a.content content, a.update_date date, u.username user, i.url imgUrl ' +
               'FROM myself_article a ' +
-              'LEFT JOIN myself_user u ON (u.id=a.user_id) ' +
+              'LEFT JOIN myself_user u ON (u.id=a.user_id AND 1=1) ' +
               'LEFT JOIN myself_img i ON (i.refer_to_article_id=a.id)' +
               'GROUP BY a.id ' +
               'ORDER BY a.id desc ' +
@@ -90,7 +90,17 @@ article.getArticleList = function (start, count, onSucc, onErr){
                 next(null, rows);
             });
         }, function (rows, next){
-            onSucc.call(this, rows);
+            var sql = 'SELECT a.id FROM myself_article a';
+            conn.query(sql, function (err, total, fields){
+                if (err){
+                    console.log(err);
+                    onErr.call(this, {stat:'error', info:'查询文章总数错误'});
+                    return;
+                }
+                next(null, rows, total.length);
+            });
+        }, function (rows, total, next){
+            onSucc.call(this, rows, total);
         }
     ]);
 }

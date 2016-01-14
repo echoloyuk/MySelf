@@ -70,13 +70,19 @@ seajs.use(['masonry', 'Paging'], function (_, Paging){
             });
 
         };
+        if (!$.isNumeric(pNum) || pNum < 2){
+            pNum = 1;
+        }
         $.ajax({
             url: './getArticleList',
             data: {page:pNum},
             type: 'GET',
-            success: function (rows){
-                console.log(rows);
-                render(rows);
+            success: function (data){
+                if (data.article && data.article.length > 0){
+                    render(data.article);
+                    page.totalPage = data.totalPage;
+                    page.curPage = data.curPage;
+                }
                 page.init();
             }
         });
@@ -85,14 +91,13 @@ seajs.use(['masonry', 'Paging'], function (_, Paging){
     $(function (){
 
         page.$target = $('#paging');
-        page.totalPage = 10;
+        page.totalPage = 1;
         page.onPage = function (p){
-            console.log(p);
             page.disable();
             loadArticle(p);
         }
 
-        loadArticle(2);
+        loadArticle();
     });
 });
 </script>
