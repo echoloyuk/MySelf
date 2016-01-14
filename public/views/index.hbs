@@ -11,6 +11,16 @@
         </section>
     </header>
     <main class="main">
+        <section id="loading">
+            <div class="loading-panel">
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+            </div>
+        </section>
         <section class="article-list" id="articleList"></section>
         <section class="paging">
             <div class="paging-panel" id="paging">
@@ -73,17 +83,22 @@ seajs.use(['masonry', 'Paging'], function (_, Paging){
         if (!$.isNumeric(pNum) || pNum < 2){
             pNum = 1;
         }
+        $('#loading').show();
         $.ajax({
             url: './getArticleList',
             data: {page:pNum},
             type: 'GET',
             success: function (data){
                 if (data.article && data.article.length > 0){
+                    $('#loading').hide();
                     render(data.article);
                     page.totalPage = data.totalPage;
                     page.curPage = data.curPage;
                 }
                 page.init();
+            },
+            complete: function (){
+                $('#loading').hide();
             }
         });
     }

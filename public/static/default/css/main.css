@@ -224,6 +224,111 @@ body {
 }
 /* 前端界面样式 */
 /* 界面部分 */
+/*.loading-panel(60px, 4px, 1.4s);*/
+/* loading style */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loading-panel {
+  width: 64px;
+  height: 64px;
+  position: absolute;
+}
+.loading-panel .point {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -2px;
+  width: 4px;
+  height: 50%;
+  transform-origin: 2px 0;
+  transform: rotate(0deg);
+  background-color: none;
+}
+.loading-panel .point .inner {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #a84d3b;
+  top: 70%;
+  left: 0;
+  border-radius: 2px;
+}
+.loading-panel .point:nth-child(10n+1) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+}
+.loading-panel .point:nth-child(10n+2) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
+}
+.loading-panel .point:nth-child(10n+3) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
+}
+.loading-panel .point:nth-child(10n+4) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
+}
+.loading-panel .point:nth-child(10n+5) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
+}
+.loading-panel .point:nth-child(10n+6) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
+}
+.loading-panel .point:nth-child(10n+7) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
+}
+.loading-panel .point:nth-child(10n+8) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
+}
+.loading-panel .point:nth-child(10n+9) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
+}
+.loading-panel .point:nth-child(10n) {
+  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
+  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
+  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
+  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
+  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
+}
 @media screen and (min-width: 1024px) {
   header.header {
     height: 400px;
@@ -328,8 +433,17 @@ body {
   footer.footer section.powered a.link:linked {
     color: #d9d9d9;
   }
+  #loading {
+    width: 64px;
+    height: 64px;
+    margin: 200px auto;
+  }
+  #loading .loading-panel {
+    position: relative;
+  }
   .myself-home .main {
     min-height: 500px;
+    position: relative;
   }
   .myself-home .main .article-list {
     width: 1000px;
@@ -392,9 +506,10 @@ body {
     height: 160px;
   }
   .myself-article main.main {
-    min-height: 600px;
+    min-height: 500px;
     width: 1000px;
     margin: 100px auto 40px;
+    position: relative;
   }
   .paging-panel {
     text-align: center;

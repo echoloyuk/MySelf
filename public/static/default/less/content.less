@@ -1,6 +1,9 @@
 /* 界面部分 */
 @import 'base.less';
+@import 'loading.less';
 
+/* loading style */
+.loading-panel(64px, 4px, 1.5s, #a84d3b);
 
 @media screen and (min-width:1024px){
     header.header{
@@ -110,9 +113,21 @@
         }
     }
 
+    #loading{
+        width:64px;
+        height:64px;
+        margin:200px auto;
+
+        .loading-panel{
+            position:relative;
+        }
+    }
+
     .myself-home{
         .main{
             min-height:500px;
+            position:relative;
+
             .article-list{
                 width:1000px;
                 margin:120px auto 40px;
@@ -186,9 +201,10 @@
         }
 
         main.main{
-            min-height:600px;
+            min-height:500px;
             width:1000px;
             margin:100px auto 40px;
+            position:relative;
             .main-content{
 
             }

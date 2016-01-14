@@ -10,7 +10,17 @@
         </section>
     </header>
     <main class="main">
-        <div class="main-content"></div>
+        <section id="loading">
+            <div class="loading-panel">
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+                <div class="point"><div class="inner"></div></div>
+            </div>
+        </section>
+        <section class="main-content">{{articleId}}</section>
     </main>
     <footer class="footer">
         <section class="copyright">
@@ -21,3 +31,11 @@
         </section>
     </footer>
 </div>
+
+<script type="text/javascript">
+seajs.use(['jquery'], function (){
+    $(function (){
+        
+    });
+});
+</script>

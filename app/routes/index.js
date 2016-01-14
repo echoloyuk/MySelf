@@ -14,7 +14,6 @@ router.get('/', function(req, res, next){
 
 /* ajax get article */
 router.get('/getArticleList', function (req, res, next){
-
     var p = parseInt(req.query.page);
     var count = CONFIG.blog.homeArticleCount;
     if (typeof p !== 'number' || p <= 1){
@@ -40,7 +39,11 @@ router.get('/getArticleList', function (req, res, next){
 
 /* open the article */
 router.get('/article', function (req, res, next){
-    res.render('article', CONFIG.blog);
+    var id = req.query.id;
+    var data = JSON.parse(JSON.stringify(CONFIG.blog)); //clone
+    data['articleId'] = id;
+
+    res.render('article', data);
 });
 
 router.get('/test', function (req, res, next){
