@@ -38,6 +38,11 @@ router.get('/getArticleList', function (req, res, next){
     });
 });
 
+/* open the article */
+router.get('/article', function (req, res, next){
+    res.render('article', CONFIG.blog);
+});
+
 router.get('/test', function (req, res, next){
     res.render('test', {});
 });

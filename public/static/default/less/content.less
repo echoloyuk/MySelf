@@ -22,10 +22,15 @@
             top:50%;
             margin:-100px 0 0 -500px;
             text-align:center;
+            z-index: 10;
 
             h1{
                 font-size:32px;
                 line-height:3em;
+
+                span{
+                    cursor:pointer;
+                }
             }
             h2{
                 font-size:16px;
@@ -60,6 +65,18 @@
                     max-height:200px;
                 }
             }
+        }
+        .nav-link{
+            position:absolute;
+            width:1000px;
+            height:40px;
+            line-height:40px;
+            z-index:5;
+            left:50%;
+            top:50%;
+            margin-left:-500px;
+            margin-top:-20px;
+            font-size:24px;
         }
     }
     footer.footer{
@@ -162,6 +179,23 @@
         }
         
     }
+    
+    .myself-article{
+        header.header{
+            height:160px;
+        }
+
+        main.main{
+            min-height:600px;
+            width:1000px;
+            margin:100px auto 40px;
+            .main-content{
+
+            }
+        }
+    }
+
+
     .paging-panel{
         text-align:center;
 

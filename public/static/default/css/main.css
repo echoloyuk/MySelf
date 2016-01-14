@@ -249,10 +249,14 @@ body {
     top: 50%;
     margin: -100px 0 0 -500px;
     text-align: center;
+    z-index: 10;
   }
   header.header .title h1 {
     font-size: 32px;
     line-height: 3em;
+  }
+  header.header .title h1 span {
+    cursor: pointer;
   }
   header.header .title h2 {
     font-size: 16px;
@@ -284,6 +288,18 @@ body {
     height: 100%;
     max-width: 200px;
     max-height: 200px;
+  }
+  header.header .nav-link {
+    position: absolute;
+    width: 1000px;
+    height: 40px;
+    line-height: 40px;
+    z-index: 5;
+    left: 50%;
+    top: 50%;
+    margin-left: -500px;
+    margin-top: -20px;
+    font-size: 24px;
   }
   footer.footer {
     background-color: #555;
@@ -371,6 +387,14 @@ body {
   .myself-home .main .paging {
     margin: 30px auto;
     width: 1000px;
+  }
+  .myself-article header.header {
+    height: 160px;
+  }
+  .myself-article main.main {
+    min-height: 600px;
+    width: 1000px;
+    margin: 100px auto 40px;
   }
   .paging-panel {
     text-align: center;
