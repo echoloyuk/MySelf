@@ -20,7 +20,14 @@
                 <div class="point"><div class="inner"></div></div>
             </div>
         </section>
-        <section class="main-content">{{articleId}}</section>
+        <section class="main-content" id="content">
+            <div class="content-title">
+                <div class="title">测试标题</div>
+                <div class="author">作者：machi</div>
+                <div class="update-date">更新时间：2016-01-15</div>
+            </div>
+            <div class="content myself-content"><p>正文部分abc</p></div>
+        </section>
     </main>
     <footer class="footer">
         <section class="copyright">
@@ -33,9 +40,37 @@
 </div>
 
 <script type="text/javascript">
-seajs.use(['jquery'], function (){
+seajs.use(['MarkdownParser'], function (Markdown){
     $(function (){
-        
+        var render = function (data){
+            $('#loading').hide();
+            var $panel = $('#content'),
+                $title = $('.title', $panel),
+                $author = $('.author', $panel),
+                $update = $('.update-date', $panel),
+                $content = $('.content.myself-content', $panel);
+            $title.html(data.title);
+            $author.html('作者：' + data.author);
+            $update.html('更新时间：' + data.updateDate);
+            $content.html(Markdown(data.content));
+        };
+        $.ajax({
+            url:'./getArticle',
+            type:'GET', 
+            data: {
+                articleId: {{articleId}}
+            },
+            success: function (res){
+                $('#loading').hide();
+                console.log(res);
+                //return;
+                if (!res || res.stat !== 'success'){
+                    $('#content').html('<h1>未找到文章或文章已经被删除</h1>');
+                    return;
+                }
+                render(res.data[0]);
+            }
+        });
     });
 });
 </script>

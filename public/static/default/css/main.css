@@ -506,10 +506,25 @@ body {
     height: 160px;
   }
   .myself-article main.main {
-    min-height: 500px;
+    min-height: 600px;
     width: 1000px;
     margin: 100px auto 40px;
     position: relative;
+  }
+  .myself-article main.main .main-content .content-title .title {
+    font-size: 32px;
+    line-height: 2.4em;
+    font-weight: bolder;
+  }
+  .myself-article main.main .main-content .content-title .author,
+  .myself-article main.main .main-content .content-title .update-date {
+    display: inline;
+    font-size: 12px;
+    margin-right: 20px;
+  }
+  .myself-article main.main .main-content .content {
+    border-top: 1px dashed #ccc;
+    margin-top: 20px;
   }
   .paging-panel {
     text-align: center;

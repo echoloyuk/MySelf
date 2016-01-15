@@ -105,5 +105,35 @@ article.getArticleList = function (start, count, onSucc, onErr){
     ]);
 }
 
+/* 获得article */
+article.getArticle = function (articleId, onSucc, onErr){
+    var conn = connection.connect();
+    if (!articleId){
+        onErr.call(this, {stat:'error', info:'文章id为空'});
+        return;
+    }
+    var sql = 'SELECT ' +
+              'a.id id, a.title title, a.content content, a.category_id category, a.create_date createDate, a.update_date updateDate, u.username author, a.count count ' +
+              'FROM myself_article a, myself_user u ' +
+              'WHERE a.user_id=u.id ' +
+              'AND a.id=' + articleId;
+    async.waterfall([
+        function (next){
+            conn.query(sql, function (err, rows){
+                if (err){
+                    console.log(err);
+                    onErr.call(this, {stat:'error', info:'未找到相应的文章'});
+                    return;
+                }
+                if (!rows || rows.length < 1){
+                    onErr.call(this, {stat:'error', info:'未找到相应的文章'});
+                    return;
+                }
+                onSucc.call(this, rows);
+            });
+        }
+    ])
+}
+
 
 module.exports = article;

@@ -23,7 +23,7 @@ router.get('/getArticleList', function (req, res, next){
     p = (p - 1) * count;
 
     article.getArticleList(p, count, function (rows, total){
-        var totalPage = Math.floor(total / count) + 1;
+        var totalPage = Math.floor((total - 1) / count) + 1;
         var data = {
             article: rows,
             totalPage: totalPage,
@@ -45,6 +45,30 @@ router.get('/article', function (req, res, next){
 
     res.render('article', data);
 });
+
+/* get the article */
+router.get('/getArticle', function (req, res, next){
+    var articleId = req.query.articleId;
+    var data;
+    if (!articleId ){
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({stat:'error', info:'文章id为空'}));
+        return;
+    }
+    article.getArticle(articleId, function (rows){
+        data = {
+            stat:'success',
+            data: rows
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(data));
+    }, function (err){
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(err));
+    })
+
+});
+
 
 router.get('/test', function (req, res, next){
     res.render('test', {});

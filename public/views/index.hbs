@@ -113,6 +113,12 @@ seajs.use(['masonry', 'Paging'], function (_, Paging){
         }
 
         loadArticle();
+
+        //跳转到article
+        $(document).on('click', '#articleList>article.article', function (){
+            var id = $(this).attr('data-id');
+            window.location.href = '/article?id=' + id;
+        });
     });
 });
 </script>

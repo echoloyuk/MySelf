@@ -201,12 +201,28 @@
         }
 
         main.main{
-            min-height:500px;
+            min-height:600px;
             width:1000px;
             margin:100px auto 40px;
             position:relative;
-            .main-content{
 
+            .main-content{
+                .content-title{
+                    .title{
+                        font-size:32px;
+                        line-height:2.4em;
+                        font-weight:bolder;
+                    }
+                    .author,.update-date{
+                        display:inline;
+                        font-size:12px;
+                        margin-right:20px;
+                    }
+                }
+                .content{
+                    border-top:1px dashed @border-color;
+                    margin-top:20px;
+                }
             }
         }
     }
