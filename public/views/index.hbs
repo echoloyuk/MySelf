@@ -72,7 +72,7 @@ seajs.use(['masonry', 'Paging'], function (_, Paging){
                 gutter:20,
                 transitionDuration:0
             };
-
+            
             $('#articleList').masonry(waterfall).html(str).masonry('appended', $('#articleList article.article'));
             $('#articleList .article img').on('load', function (){
                 $(this).removeAttr('width').removeAttr('height');

@@ -406,6 +406,13 @@ body {
     margin-top: -20px;
     font-size: 24px;
   }
+  header.header .nav-link span {
+    cursor: pointer;
+    transition: all .2s;
+  }
+  header.header .nav-link span:hover {
+    color: #ddd;
+  }
   footer.footer {
     background-color: #555;
     display: block;

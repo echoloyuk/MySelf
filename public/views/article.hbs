@@ -6,7 +6,9 @@
             </div>
         </section>
         <section class="nav-link">
-            <div class="link-btn">back to Home</div>
+            <div class="link-btn">
+                <span id="back">back to Home</span>
+            </div>
         </section>
     </header>
     <main class="main">
@@ -71,6 +73,10 @@ seajs.use(['MarkdownParser'], function (Markdown){
                 render(res.data[0]);
             }
         });
+
+        $('#back').on('click', function (){
+            window.location.href = '/';
+        })
     });
 });
 </script>
