@@ -45,8 +45,10 @@
 
 
 <script type="text/javascript">
-seajs.use(['masonry', 'Paging'], function (_, Paging){
+seajs.use(['Paging', 'Waterfall'], function (Paging, Waterfall){
     var page = new Paging();
+    var w = new Waterfall();
+    w.$target = $('#articleList');
 
     var loadArticle = function (pNum){
         var render = function (rows){
@@ -73,11 +75,20 @@ seajs.use(['masonry', 'Paging'], function (_, Paging){
                 transitionDuration:0
             };
             
-            $('#articleList').masonry(waterfall).html(str).masonry('appended', $('#articleList article.article'));
+            $('#articleList').html(str);
+            w.$items = $('article.article', $('#articleList'));
+            w.marginLeft = 10;
+            w.marginRight = 10;
+            w.marginTop = 10;
+            w.marginBottom = 10;
+            w.init();
+            /*
+            $('#articleList').masonry(waterfall).html(str).masonry('appended', $('#articleList article.article'));*/
             $('#articleList .article img').on('load', function (){
                 $(this).removeAttr('width').removeAttr('height');
-                $('#articleList').masonry(waterfall);
+                w.init();
             });
+
 
         };
         if (!$.isNumeric(pNum) || pNum < 2){

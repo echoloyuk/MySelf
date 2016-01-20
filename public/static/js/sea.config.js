@@ -15,13 +15,12 @@ seajs.config({
         EditorCSS: 'components/editor/css/editor.css',
         MarkdownParser: 'components/editor/components/markdownparser.js',
         Util: 'components/editor/components/util.js',
-        //masonry
-        masonry: 'components/masonry/masonry.min.js',
 
         //components
         Dialog: 'js/dialog.js',
         Mask: 'js/mask.js',
         Paging: 'js/paging.js',
+        Waterfall: 'js/waterfall.js',
 
         //components css
         DialogCSS: theme + '/css/dialog.css',

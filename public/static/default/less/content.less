@@ -141,15 +141,14 @@
                 width:1000px;
                 margin:120px auto 40px;
                 position:relative;
-                left:10px;
 
                 article.article{
                     box-sizing:border-box;
                     width:313px;
                     margin:0;
                     padding:0;
-                    margin-bottom:20px;
                     cursor:pointer;
+                    position:absolute;
                     .transition;
 
                     &:hover{
@@ -300,6 +299,7 @@
     h1, h2, h3, h4, h5, h6{
         font-weight:bold;
         margin:20px 0;
+        line-height:2em;
     }
     h1{
         font-size:24px;
@@ -316,10 +316,10 @@
     p{
         margin:1.6em 0 2em 0;
         font-size:16px;
-        line-height:1.8em;
+        line-height:2em;
     }
     img{
-        margin:1em 0;
+        margin:.2em 0;
         max-width:98%;
     }
     a{
@@ -345,14 +345,14 @@
         
     ul, ol{
         margin:0;
-        padding-left:1.6em;
+        padding-left:1.8em;
 
         li{
-            line-height:1.6em;
+            line-height:1.8em;
         }
     }
     pre{
-        background-color:#e8e8e8;
+        background-color:#e3e3e3;
         padding:1em;
         border-radius:2px;
         code{
@@ -366,7 +366,7 @@
         font-family:@content-code;
         line-height:1.6em;
         padding:.1em .2em;
-        background-color:#e8e8e8;
+        background-color:#e3e3e3;
     }
     hr{
         height:0;
