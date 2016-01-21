@@ -10,7 +10,7 @@ define(function (require, exports, module){
                 link: '/admin/editor/'
             }, {
                 name: '文章管理',
-                link: ''
+                link: '/admin/article/'
             }, {
                 name: '分类',
                 link: ''

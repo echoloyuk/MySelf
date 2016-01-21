@@ -125,7 +125,11 @@ router.post('/doPostImage', function (req, res, next){
             res.send(JSON.stringify(res));
         });
     });
-    
+});
+
+/* get article list to administrator */
+router.get('/article', function (req, res, next){
+    res.render('admin-article');
 });
 
 /* GET welcome */
