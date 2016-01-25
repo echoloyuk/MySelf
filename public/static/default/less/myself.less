@@ -245,7 +245,32 @@ html, body{
 
 /* 系统管理界面 */
 .admin-page{
-    .admin-col{
-        
+    .admin-page-title{
+        height:54px;
+        line-height:54px;
+        border-bottom:1px solid @border-color;
+        font-size:16px;
+        padding:0 20px;
+    }
+    .admin-page-content{
+
+        ul.admin-list{
+            list-style: none;
+            padding:0;
+            margin:0;
+
+            li.list-item{
+                font-size:@sys-font-size;
+                padding:10px 20px;
+                border-bottom:1px dashed @border-color;
+
+                &:nth-child(2n+1){
+                    background-color:#fff;
+                }
+                &:hover{
+                    background-color:#fbebcd;
+                }
+            }
+        }
     }
 }

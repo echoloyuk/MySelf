@@ -228,12 +228,28 @@ body {
   margin-bottom: 40px;
 }
 /* 系统管理界面 */
-.admin-page .admin-header {
+.admin-page .admin-page-title {
   height: 54px;
   line-height: 54px;
+  border-bottom: 1px solid #ccc;
   font-size: 16px;
-  background-color: #ddd;
   padding: 0 20px;
+}
+.admin-page .admin-page-content ul.admin-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.admin-page .admin-page-content ul.admin-list li.list-item {
+  font-size: 14px;
+  padding: 10px 20px;
+  border-bottom: 1px dashed #ccc;
+}
+.admin-page .admin-page-content ul.admin-list li.list-item:nth-child(2n+1) {
+  background-color: #fff;
+}
+.admin-page .admin-page-content ul.admin-list li.list-item:hover {
+  background-color: #fbebcd;
 }
 /* 前端界面样式 */
 /* 界面部分 */
