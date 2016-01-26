@@ -135,7 +135,7 @@ body {
   padding: 0 10px;
   outline: none;
   font-family: 'Microsoft YaHei', sans-serif;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 .login .login-panel .login-input .input:focus {
   box-shadow: 0 0 4px #aaaaaa;
@@ -157,7 +157,7 @@ body {
   color: #ccc;
   text-align: center;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 .login .login-panel .login-submit:hover {
   background-color: #6f6f6f;
@@ -191,7 +191,7 @@ body {
   line-height: 40px;
   cursor: pointer;
   font-size: 14px;
-  transition: all .2s;
+  transition: all 0.2s;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -236,11 +236,52 @@ body {
   border-bottom: 1px solid #ccc;
   font-size: 16px;
   padding: 0 20px;
+  position: relative;
 }
 .admin-page .admin-page-title span.subtitle {
   font-size: 12px;
   font-weight: lighter;
   margin-left: 8px;
+}
+.admin-page .admin-page-title .admin-page-search-panel {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #ccc;
+}
+.admin-page .admin-page-title .admin-page-search-panel .search-input {
+  height: 28px;
+  line-height: 28px;
+  box-sizing: border-box;
+  padding: 0 6px;
+  border: none;
+  vertical-align: top;
+  font-family: 'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  color: #555;
+  outline: none;
+  width: 200px;
+  border-right: 1px solid #ccc;
+}
+.admin-page .admin-page-title .admin-page-search-panel .search-button {
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  vertical-align: top;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
+.admin-page .admin-page-title .admin-page-search-panel .search-button:hover {
+  background-color: #6f6f6f;
+  color: #fff;
 }
 .admin-page .admin-page-content ul.admin-list {
   list-style: none;
@@ -293,7 +334,7 @@ body {
   text-align: center;
   padding: 0 6px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -309,6 +350,9 @@ body {
 .admin-page .admin-page-content .list-item-grid .grid-button.disabled {
   cursor: default;
   background-color: #909090;
+}
+.admin-page .paging {
+  margin: 50px 0;
 }
 /* 前端界面样式 */
 /* 界面部分 */
@@ -493,10 +537,11 @@ body {
     margin-left: -500px;
     margin-top: -20px;
     font-size: 24px;
+    font-weight: lighter;
   }
   header.header .nav-link span {
     cursor: pointer;
-    transition: all .2s;
+    transition: all 0.2s;
   }
   header.header .nav-link span:hover {
     color: #ddd;
@@ -519,7 +564,7 @@ body {
     color: #ccc;
     text-decoration: none;
     margin: 0 6px;
-    transition: all .2s;
+    transition: all 0.2s;
   }
   footer.footer section.powered a.link:hover {
     color: #d9d9d9;
@@ -552,7 +597,7 @@ body {
     padding: 0;
     cursor: pointer;
     position: absolute;
-    transition: all .2s;
+    transition: all 0.2s;
   }
   .myself-home .main .article-list article.article:hover {
     box-shadow: 0 0 6px #000;
@@ -641,7 +686,7 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
-    transition: all .2s;
+    transition: all 0.2s;
   }
   .paging-panel .paging-button:hover {
     background-color: #555;

@@ -2,6 +2,9 @@
     <section class="admin-page-title">
         <span>文章管理</span>
         <span class="subtitle">共13条</span>
+        <div class="admin-page-search-panel">
+            <input type="text" class="search-input" placeholder="标题/作者/分类" /><div class="search-button">Search</div>
+        </div>
     </section>
     <section class="admin-page-content">
         <ul class="admin-list">
@@ -318,5 +321,15 @@
                 </div>
             </li>
         </ul>
+    </section>
+    <section class="paging">
+        <div class="paging-panel" id="paging">
+            <div class="paging-button prev"><</div>
+            <div class="paging-num cur">1</div>
+            <div class="paging-button next">></div>
+            <div class="paging-input-panel">
+                <input type="text" class="paging-input" maxlength="3"><div class="paging-button goto">GO</div>
+            </div>
+        </div>
     </section>
 </div>
