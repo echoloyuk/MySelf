@@ -251,6 +251,12 @@ html, body{
         border-bottom:1px solid @border-color;
         font-size:16px;
         padding:0 20px;
+
+        span.subtitle{
+            font-size:12px;
+            font-weight:lighter;
+            margin-left:8px;
+        }
     }
     .admin-page-content{
 
@@ -261,8 +267,9 @@ html, body{
 
             li.list-item{
                 font-size:@sys-font-size;
-                padding:10px 20px;
+                padding:20px;
                 border-bottom:1px dashed @border-color;
+                .fun-clear-float;
 
                 &:nth-child(2n+1){
                     background-color:#fff;
@@ -270,6 +277,31 @@ html, body{
                 &:hover{
                     background-color:#fbebcd;
                 }
+            }
+        }
+        .list-item-splict{
+            height:0;
+            clear:both;
+            margin:8px 0;
+        }
+        .list-item-grid{
+            padding:4px 2px;
+            float:left;
+            margin-right:30px;
+
+            .key{
+                font-weight:bold;
+                &:after{
+                    content: ' : ';
+                    font-size:14px;
+                }
+            }
+            .value{
+                
+            }
+            .grid-button{
+                .button();
+                margin:0 6px;
             }
         }
     }

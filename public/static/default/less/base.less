@@ -26,8 +26,22 @@
     -o-user-select:@select;
 }
 
+/* 统一的过渡函数 */
 .transition (){
     transition:all .2s;
+}
+
+/* 清除浮动 */
+.fun-clear-float (){
+    *zoom:1;
+    &:after{
+        display:block;
+        content:"clear";
+        height:0;
+        clear:both;
+        overflow:hidden;
+        visibility:hidden;
+    }
 }
 
 /* 公用按钮 */

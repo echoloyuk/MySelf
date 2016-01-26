@@ -3,6 +3,8 @@
 /* include */
 /* 变量 */
 /* 公用的函数css */
+/* 统一的过渡函数 */
+/* 清除浮动 */
 /* 公用按钮 */
 /* 样式 */
 html,
@@ -235,6 +237,11 @@ body {
   font-size: 16px;
   padding: 0 20px;
 }
+.admin-page .admin-page-title span.subtitle {
+  font-size: 12px;
+  font-weight: lighter;
+  margin-left: 8px;
+}
 .admin-page .admin-page-content ul.admin-list {
   list-style: none;
   padding: 0;
@@ -242,14 +249,66 @@ body {
 }
 .admin-page .admin-page-content ul.admin-list li.list-item {
   font-size: 14px;
-  padding: 10px 20px;
+  padding: 20px;
   border-bottom: 1px dashed #ccc;
+  *zoom: 1;
+}
+.admin-page .admin-page-content ul.admin-list li.list-item:after {
+  display: block;
+  content: "clear";
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
 }
 .admin-page .admin-page-content ul.admin-list li.list-item:nth-child(2n+1) {
   background-color: #fff;
 }
 .admin-page .admin-page-content ul.admin-list li.list-item:hover {
   background-color: #fbebcd;
+}
+.admin-page .admin-page-content .list-item-splict {
+  height: 0;
+  clear: both;
+  margin: 8px 0;
+}
+.admin-page .admin-page-content .list-item-grid {
+  padding: 4px 2px;
+  float: left;
+  margin-right: 30px;
+}
+.admin-page .admin-page-content .list-item-grid .key {
+  font-weight: bold;
+}
+.admin-page .admin-page-content .list-item-grid .key:after {
+  content: ' : ';
+  font-size: 14px;
+}
+.admin-page .admin-page-content .list-item-grid .grid-button {
+  height: 22px;
+  line-height: 22px;
+  display: inline-block;
+  background-color: #484848;
+  color: #ccc;
+  text-align: center;
+  padding: 0 6px;
+  cursor: pointer;
+  transition: all .2s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  margin: 0 6px;
+}
+.admin-page .admin-page-content .list-item-grid .grid-button:hover {
+  background-color: #6f6f6f;
+}
+.admin-page .admin-page-content .list-item-grid .grid-button:active {
+  background-color: #ccc;
+}
+.admin-page .admin-page-content .list-item-grid .grid-button.disabled {
+  cursor: default;
+  background-color: #909090;
 }
 /* 前端界面样式 */
 /* 界面部分 */
@@ -503,6 +562,7 @@ body {
     background-color: #d8d8d8;
     line-height: 2em;
     font-size: 14px;
+    font-weight: lighter;
   }
   .myself-home .main .article-list article.article section.abstract::first-letter {
     font-size: 24px;
@@ -619,6 +679,7 @@ body {
 /* 正文部分样式 */
 .myself-content {
   font-size: 16px;
+  font-weight: lighter;
 }
 .myself-content h1,
 .myself-content h2,
