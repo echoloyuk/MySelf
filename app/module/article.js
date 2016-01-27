@@ -72,6 +72,38 @@ article.setArticle = function (article, onSucc, onErr){
 article.getArticleList = function (start, count, onSucc, onErr){
     var conn = connection.connect();
     var sql = 'SELECT ' +
+              'a.id id, ' +
+              'a.title title, ' +
+              'a.content content, ' +
+              'a.update_date date, ' +
+              'u.username user ' +
+              'FROM ' +
+              'myself_article a, myself_user u ' +
+              'WHERE a.user_id=u.id ' +
+              'ORDER BY a.id DESC ' +
+              'LIMIT ' + start + ',' + count;
+    async.waterfall([
+        function (next){
+            conn.query(sql, function (err, rows, fields){
+                if (err){
+                    onErr.call(this, {stat:'error', info:'查询文章数据库错误'});
+                    return;
+                }
+                next(null, rows);
+            });
+        }, function (next, rows){
+            var cur;
+            for (var i = 0, count = rows.length; i < count; i++){
+                cur = rows[i]['content'];
+                
+            }
+        }
+    ]);
+};
+/*
+article.getArticleList = function (start, count, onSucc, onErr){
+    var conn = connection.connect();
+    var sql = 'SELECT ' +
               'a.id id, a.title title, a.content content, a.update_date date, u.username user, i.url imgUrl ' +
               'FROM myself_article a ' +
               'LEFT JOIN myself_user u ON (u.id=a.user_id AND 1=1) ' +
@@ -104,6 +136,7 @@ article.getArticleList = function (start, count, onSucc, onErr){
         }
     ]);
 }
+*/
 
 /* 获得article */
 article.getArticle = function (articleId, onSucc, onErr){
