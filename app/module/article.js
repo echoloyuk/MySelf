@@ -91,36 +91,20 @@ article.getArticleList = function (start, count, onSucc, onErr){
                 }
                 next(null, rows);
             });
-        }, function (next, rows){
+        }, function (rows, next){ //deal with image url
             var cur;
+            var reg = /!\[\S+\]\((\S+)\)/; //查找文章中的图片路径
+            var regRes;
+            var imgUrl;
             for (var i = 0, count = rows.length; i < count; i++){
                 cur = rows[i]['content'];
-                
-            }
-        }
-    ]);
-};
-/*
-article.getArticleList = function (start, count, onSucc, onErr){
-    var conn = connection.connect();
-    var sql = 'SELECT ' +
-              'a.id id, a.title title, a.content content, a.update_date date, u.username user, i.url imgUrl ' +
-              'FROM myself_article a ' +
-              'LEFT JOIN myself_user u ON (u.id=a.user_id AND 1=1) ' +
-              'LEFT JOIN myself_img i ON (i.refer_to_article_id=a.id)' +
-              'GROUP BY a.id ' +
-              'ORDER BY a.id desc ' +
-              'LIMIT ' + start + ',' + count;
-    async.waterfall([
-        function (next){
-            conn.query(sql, function (err, rows, fields){
-                if (err){
-                    console.log(err);
-                    onErr.call(this, {stat:'error', info:'查询文章数据库错误'});
-                    return;
+                regRes = reg.exec(cur);
+                if (regRes && regRes[1]){
+                    rows[i]['imgUrl'] = regRes[1];
                 }
-                next(null, rows);
-            });
+            }
+            console.log(rows);
+            next(null, rows);
         }, function (rows, next){
             var sql = 'SELECT a.id FROM myself_article a';
             conn.query(sql, function (err, total, fields){
@@ -135,8 +119,7 @@ article.getArticleList = function (start, count, onSucc, onErr){
             onSucc.call(this, rows, total);
         }
     ]);
-}
-*/
+};
 
 /* 获得article */
 article.getArticle = function (articleId, onSucc, onErr){
