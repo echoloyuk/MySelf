@@ -151,6 +151,19 @@ article.getArticle = function (articleId, onSucc, onErr){
     ]);
 }
 
+/* 设置某个article阅读数+1 */
+article.increaseReadingNum = function (articleId, onSucc, onErr){
+    var conn = connection.connect();
+    var sql = 'UPDATE myself_article a SET a.count=a.count+1 WHERE a.id=' + articleId;
+    conn.query(sql, function (err){
+        if (err){
+            onErr.call(this, {stat:'error', info:'文章阅读数增加1'});
+            return;
+        }
+        onSucc.call(this, {stat:'success'});
+    });
+};
+
 /* 获得所有article 信息 for admin */
 article.getAllArticle = function (start, count, onSucc, onErr){
     var conn = connection.connect();

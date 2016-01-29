@@ -60,6 +60,10 @@ router.get('/getArticle', function (req, res, next){
             stat:'success',
             data: rows
         }
+
+        //increase
+        article.increaseReadingNum(articleId, function (){}, function (){});
+
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(data));
     }, function (err){
