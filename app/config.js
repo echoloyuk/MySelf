@@ -22,6 +22,9 @@ var config = {
         authorImgUrl: '/static/default/images/author-img.png',
         copyright:'Loyuk.MaChi. 2016.',
         homeArticleCount: 10
+    },
+    admin: {
+        itemsCount: 8
     }
 }
 

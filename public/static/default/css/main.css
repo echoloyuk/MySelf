@@ -392,74 +392,74 @@ body {
   border-radius: 2px;
 }
 .loading-panel .point:nth-child(10n+1) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0s infinite;
 }
 .loading-panel .point:nth-child(10n+2) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.10714286s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.11428571s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.11428571s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.11428571s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.11428571s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.11428571s infinite;
 }
 .loading-panel .point:nth-child(10n+3) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.21428571s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.22857143s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.22857143s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.22857143s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.22857143s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.22857143s infinite;
 }
 .loading-panel .point:nth-child(10n+4) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.32142857s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.34285714s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.34285714s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.34285714s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.34285714s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.34285714s infinite;
 }
 .loading-panel .point:nth-child(10n+5) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.42857143s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.45714286s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.45714286s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.45714286s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.45714286s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.45714286s infinite;
 }
 .loading-panel .point:nth-child(10n+6) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.53571429s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.57142857s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.57142857s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.57142857s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.57142857s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.57142857s infinite;
 }
 .loading-panel .point:nth-child(10n+7) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.64285714s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.68571429s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.68571429s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.68571429s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.68571429s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.68571429s infinite;
 }
 .loading-panel .point:nth-child(10n+8) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.75s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.8s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.8s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.8s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.8s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.8s infinite;
 }
 .loading-panel .point:nth-child(10n+9) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.85714286s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.91428571s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.91428571s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.91428571s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.91428571s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.91428571s infinite;
 }
 .loading-panel .point:nth-child(10n) {
-  -webkit-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
-  -moz-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
-  -o-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
-  -ms-animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
-  animation: rotate 1.5s cubic-bezier(0.1, 0.6, 0.9, 0.4) 0.96428571s infinite;
+  -webkit-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 1.02857143s infinite;
+  -moz-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 1.02857143s infinite;
+  -o-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 1.02857143s infinite;
+  -ms-animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 1.02857143s infinite;
+  animation: rotate 1.6s cubic-bezier(0.1, 0.6, 0.9, 0.4) 1.02857143s infinite;
 }
 @media screen and (min-width: 1024px) {
   header.header {

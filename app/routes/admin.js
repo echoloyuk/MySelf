@@ -7,6 +7,7 @@ var util = require('../components/util');
 var multiparty = require('multiparty');
 var fs = require('fs-extra');
 var async = require('async');
+var CONFIG = require('../config');
 
 /* GET editor. */
 router.get('/editor', function(req, res, next) {
@@ -132,6 +133,31 @@ router.post('/doPostImage', function (req, res, next){
 /* get article list to administrator */
 router.get('/article', function (req, res, next){
     res.render('admin-article');
+});
+
+/* article list from admin dashboard */
+router.get('/getArticle', function (req, res, next){
+    var page = parseInt(req.query.page);
+    var itemNum = CONFIG.admin.itemsCount;
+    if (typeof page !== 'number' || page < 1){
+        page = 1;
+    }
+    var data = {
+        curPage: page,
+        totalPage: null,
+        data: null,
+        totalItems: null
+    }
+    article.getAllArticle(page - 1, itemNum, function (rows, total){
+        data.data = rows,
+        data.totalPage = Math.floor((total - 1) / itemNum) + 1;
+        data.totalItems = total;
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(data));
+    }, function (err){
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(err));
+    });
 });
 
 /* GET welcome */

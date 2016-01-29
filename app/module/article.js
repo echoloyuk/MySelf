@@ -148,7 +148,47 @@ article.getArticle = function (articleId, onSucc, onErr){
                 onSucc.call(this, rows);
             });
         }
-    ])
+    ]);
+}
+
+/* 获得所有article 信息 for admin */
+article.getAllArticle = function (start, count, onSucc, onErr){
+    var conn = connection.connect();
+    var sql = 'SELECT ' + 
+              'a.id id, ' +
+              'a.title title, ' +
+              'a.content content, ' +
+              'a.create_date createDate, ' +
+              'a.update_date updateDate, ' +
+              'a.count count, ' +
+              'u.username username ' +
+              'FROM myself_article a, myself_user u ' +
+              'WHERE a.user_id=u.id ' +
+              'ORDER BY a.id DESC ' +
+              'LIMIT ' + start + ',' + count;
+    async.waterfall([
+        function (next){
+            conn.query(sql, function (err, rows){
+                if (err){
+                    console.log(err);
+                    onErr.call(this, {stat:'error', info:'文章获取失败'});
+                    return;
+                }
+                next(null, rows);
+            });
+        }, function (rows, next){
+            var sql = 'SELECT id FROM myself_article';
+            conn.query(sql, function (err, total){
+                if (err){
+                    onErr.call(this, {stat:'error', info:'文章数量获取失败'});
+                    return;
+                }
+                onSucc.call(this, rows, total.length);
+            });
+        }
+    ]);
+    
+
 }
 
 
