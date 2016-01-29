@@ -7,8 +7,8 @@ define(function (require, exports, module){
 
     "use strict";
 
-	//依赖的模块
-	var MarkdownParser = require('MarkdownParser');
+    //依赖的模块
+    var MarkdownParser = require('MarkdownParser');
     var TextArea = require('TextArea');
     var Util = require('Util');
 
@@ -18,8 +18,8 @@ define(function (require, exports, module){
     //id
     var id = 'HelloWorld';
 
-	//CSS
-	require('EditorCSS');
+    //CSS
+    require('EditorCSS');
 
     var Editor = function ($target){
         this.$target = null; //编辑器放在哪个容器中。必须是jquery对象。
@@ -235,23 +235,26 @@ define(function (require, exports, module){
                     return;
                 }
                 var check = _this._checkUpLoadImg($file);
-                if ($file.val() && check){
-                    $form.ajaxSubmit({
-                        url :_this.imgUrl,
-                        type: 'POST',
-                        xhr: function (){
-                            var xhr = $.ajaxSettings.xhr();
-                            xhr.upload.addEventListener('progress', _this._onUpLoadImgProgress(_this));
-                            xhr.addEventListener('load', _this._onUpLoadImgComplete(_this, pos));
-                            xhr.addEventListener('event', _this._onUpLoadImgError(_this));
-                            //xhr.addEventListener('abort', _this._onUpLoadImgAbort);
-                            return xhr;
-                        },
-                        processData:false
-                    });
-                } else { //直接写link
-                    _this._insertImgString($link.val(), ($alt.val() || ''), pos);
+                if (check){
+                    if ($file.val() && check){
+                        $form.ajaxSubmit({
+                            url :_this.imgUrl,
+                            type: 'POST',
+                            xhr: function (){
+                                var xhr = $.ajaxSettings.xhr();
+                                xhr.upload.addEventListener('progress', _this._onUpLoadImgProgress(_this));
+                                xhr.addEventListener('load', _this._onUpLoadImgComplete(_this, pos));
+                                xhr.addEventListener('event', _this._onUpLoadImgError(_this));
+                                //xhr.addEventListener('abort', _this._onUpLoadImgAbort);
+                                return xhr;
+                            },
+                            processData:false
+                        });
+                    } else { //直接写link
+                        _this._insertImgString($link.val(), ($alt.val() || ''), pos);
+                    }
                 }
+                
             });
 
             //用户体验，当窗口弹出时，支持ESC关闭和ENTER的上传图片
@@ -728,5 +731,5 @@ define(function (require, exports, module){
         }
     });
 
-	module.exports = Editor;
+    module.exports = Editor;
 });

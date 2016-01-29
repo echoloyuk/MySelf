@@ -32,6 +32,7 @@ image.setImage = function (files, articleTmpId, onSucc, onErr){
         }, function (next){
             var conn = connection.connect();
             var imgUrl = CONFIG['upload']['uploadUrl'] + newImgName;
+            /*
             var sql = 'insert into myself_img (url, refer_to_article_id, size, create_date) values ' +
                     '("' + imgUrl + '", ' +
                     '"' + articleTmpId + '", ' +
@@ -45,6 +46,8 @@ image.setImage = function (files, articleTmpId, onSucc, onErr){
                 }
                 onSucc.call(this, imgUrl);
             });
+            */
+            onSucc.call(this, imgUrl);
         }
     ]);
 };
@@ -52,6 +55,7 @@ image.setImage = function (files, articleTmpId, onSucc, onErr){
 image.saveImage = function (articleTmpId, articleId, onSucc, onErr){
     var conn = connection.connect();
     var sql = 'update myself_img set refer_to_article_id="' + articleId + '" where refer_to_article_id="' + articleTmpId + '"';
+    /*
     conn.query(sql, function (err){
         if (err){
             onErr.call(this, {stat:'error', info:'图片与文章链接失败'});
@@ -59,6 +63,8 @@ image.saveImage = function (articleTmpId, articleId, onSucc, onErr){
         }
         onSucc.call(this, {stat:'success'});
     });
+    */
+    onSucc.call(this, {stat:'success'});
 };
 
 module.exports = image;

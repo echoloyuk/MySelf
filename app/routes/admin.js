@@ -12,10 +12,11 @@ var async = require('async');
 router.get('/editor', function(req, res, next) {
     
     //为了保证在写文章时能顺利保存图片，因此需要session中保存临时的一个id，用来记录图片的对应关系
+    /*
     var session = req.session;
     if (!session['articleTmpId']){
         session['articleTmpId'] = util.getUID('myself');
-    }
+    }*/
 
     res.render('editor', { title: 'Express' });
 });
@@ -87,15 +88,16 @@ router.post('/doPostArticle', function (req, res, next){
                 res.send(JSON.stringify(err));
             });
         }, function (articleId, next){
-            var tmpId = session['articleTmpId'];
+            next(null);
+            /*var tmpId = session['articleTmpId'];
             image.saveImage(tmpId, articleId, function (res){
                 next(null);
             }, function (err){
                 res.setHeader('Content-Type', 'application/json');
                 res.send(JSON.stringify(err));
-            });
+            });*/
         }, function (next){
-            session['articleTmpId'] = '';
+            //session['articleTmpId'] = '';
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({stat:'success', info:'文章发布成功'}));
         }
