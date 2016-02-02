@@ -11,15 +11,13 @@ var CONFIG = require('../config');
 
 /* GET editor. */
 router.get('/editor', function(req, res, next) {
-    
-    //为了保证在写文章时能顺利保存图片，因此需要session中保存临时的一个id，用来记录图片的对应关系
-    /*
-    var session = req.session;
-    if (!session['articleTmpId']){
-        session['articleTmpId'] = util.getUID('myself');
-    }*/
+    var articleId = req.query.articleId;
+    if (!articleId){
+        res.render('editor', { title: 'Express' });
+    } else { //modify
 
-    res.render('editor', { title: 'Express' });
+        res.render('editor', { title: 'Express' });
+    }
 });
 
 /* GET login */
