@@ -77,8 +77,8 @@ seajs.use(['Paging'], function (Paging){
                         '<div class="list-item-grid">' +
                             '<span class="key">操作</span>' +
                             '<span class="value">' +
-                                '<div class="grid-button">修改</div>' +
-                                '<div class="grid-button">删除</div>' +
+                                '<div class="grid-button modifyBtn">修改</div>' +
+                                '<div class="grid-button deleteBtn">删除</div>' +
                             '</span>' +
                         '</div></li>';
             }
@@ -115,6 +115,13 @@ seajs.use(['Paging'], function (Paging){
             loadArticle(page);
         }
         loadArticle();
+
+        //修改article
+        $(document).on('click', '#articleList .list-item .modifyBtn', function (){
+            var $this = $(this);
+            var id = $this.parent().parent().parent().attr('data-id');
+            window.location.href = '/admin/editor?articleId=' + id;
+        });
     });
 });
 </script>

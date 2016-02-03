@@ -7,6 +7,7 @@
     </div>
     <div id="editor" class="editor"></div>  
 </div>
+<div id="cache" style="display:none">{{{content}}}</div>
 <script type="text/javascript">
 seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
     $(function (){
@@ -51,6 +52,14 @@ seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
                 data:data
             });
         });
+
+        //修改文章
+        var content = $('#cache').text();
+        if (content){
+            $('#hContent').val(content);
+            $('#hTitle').val('{{title}}');
+            e.toPreview();
+        }
     });
 });
 </script>

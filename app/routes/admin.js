@@ -14,9 +14,20 @@ router.get('/editor', function(req, res, next) {
     var articleId = req.query.articleId;
     if (!articleId){
         res.render('editor', { title: 'Express' });
-    } else { //modify
 
-        res.render('editor', { title: 'Express' });
+    } else { //modify
+        
+        article.getArticle(articleId, function (rows){
+            var data = {
+                title:rows[0]['title'],
+                content:rows[0]['content']
+            };
+            res.render('editor', data);
+        }, function (){
+
+            //没有找到articleid，默认显示新增
+            res.render('editor', {title: 'Express'});
+        });
     }
 });
 
