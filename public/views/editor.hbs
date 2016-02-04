@@ -2,12 +2,13 @@
     <div class="admin-editor-ctrl-panel">
         <div class="ctrl-list">
             <div class="ctrl-item">帮助</div>
+            <div class="ctrl-item" id="back">返回</div>
             <div class="ctrl-item" id="submit">发布</div>
         </div>
     </div>
     <div id="editor" class="editor"></div>  
 </div>
-<div id="cache" style="display:none">{{{content}}}</div>
+<div id="cache" style="display:none">{{{articleContent}}}</div>
 <script type="text/javascript">
 seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
     $(function (){
@@ -15,6 +16,8 @@ seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
         e.imgUrl = '/admin/doPostImage';
         e.init();
         $('#editor #hPreview').addClass('myself-content');
+
+        var aType = '{{type}}';
 
         $('#submit').on('click', function (){
             var $this = $(this);
@@ -53,12 +56,24 @@ seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
             });
         });
 
-        //修改文章
-        var content = $('#cache').text();
-        if (content){
-            $('#hContent').val(content);
-            $('#hTitle').val('{{title}}');
-            e.toPreview();
+        $('#back').on('click', function (){
+            if (aType === 'alter'){
+                e.clearContext();
+                window.location.href = '/admin/article';
+            }
+        });
+
+        //修改文章或新建文章的判断
+        if (!aType || aType === 'new'){
+            //$('#hContent').val('');
+            //$('#hTitle').val('');
+        } else {
+            var content = $('#cache').text();
+            if (content){
+                $('#hContent').val(content);
+                $('#hTitle').val('{{articleTitle}}');
+                e.toPreview();
+            }
         }
     });
 });

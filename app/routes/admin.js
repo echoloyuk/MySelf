@@ -12,21 +12,21 @@ var CONFIG = require('../config');
 /* GET editor. */
 router.get('/editor', function(req, res, next) {
     var articleId = req.query.articleId;
-    if (!articleId){
-        res.render('editor', { title: 'Express' });
 
-    } else { //modify
-        
+    if (!articleId){
+        res.render('editor', {title:'MySelf Editor',type:'new'});
+    } else {
         article.getArticle(articleId, function (rows){
             var data = {
-                title:rows[0]['title'],
-                content:rows[0]['content']
+                articleTitle:rows[0]['title'],
+                articleContent:rows[0]['content'],
+                type:'alter'
             };
             res.render('editor', data);
         }, function (){
 
             //没有找到articleid，默认显示新增
-            res.render('editor', {title: 'Express'});
+            res.render('editor', {title:'MySelf Editor',type:'new'});
         });
     }
 });
