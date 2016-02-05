@@ -2,6 +2,8 @@
 /* 引入 */
 /* 变量 */
 /* 公用的函数css */
+/* 统一的过渡函数 */
+/* 清除浮动 */
 /* 公用按钮 */
 .myself-dialog {
   position: absolute;
@@ -44,11 +46,11 @@
   line-height: 22px;
   display: inline-block;
   background-color: #484848;
-  color: #eee;
+  color: #ccc;
   text-align: center;
   padding: 0 6px;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -63,4 +65,7 @@
 .myself-dialog .dialog-btn-panel .dialog-btn.disabled {
   cursor: default;
   background-color: #909090;
+}
+.myself-dialog .dialog-btn-panel .dialog-btn.cancel {
+  margin-left: 10px;
 }

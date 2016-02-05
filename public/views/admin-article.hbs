@@ -32,7 +32,7 @@
     </section>
 </div>
 <script type="text/javascript">
-seajs.use(['Paging'], function (Paging){
+seajs.use(['Paging', 'Dialog'], function (Paging, Dialog){
     var paging = new Paging();
     var loadArticle = function (page){
         var $article = $('#articleList'),
@@ -121,6 +121,26 @@ seajs.use(['Paging'], function (Paging){
             var $this = $(this);
             var id = $this.parent().parent().parent().attr('data-id');
             window.location.href = '/admin/editor?articleId=' + id;
+        });
+
+        //删除article
+        var d = new Dialog;
+        d.isShowCancel = true;
+        d.message = '确定要删除吗?';
+        $(document).on('click', '#articleList .list-item .deleteBtn', function (){
+            var $this = $(this);
+            var id = $this.parent().parent().parent().attr('data-id');
+            d.onConfirm = function (){
+                $.ajax({
+                    url:'/admin/doDeleteArticle',
+                    type:'POST',
+                    data:{articleId:id},
+                    success: function (res){
+                        loadArticle();
+                    }
+                });
+            };
+            d.show();
         });
     });
 });

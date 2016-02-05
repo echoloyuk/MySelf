@@ -11,18 +11,6 @@ define(function (require, exports, module){
             }, {
                 name: '文章管理',
                 link: '/admin/article/'
-            }, {
-                name: '分类',
-                link: ''
-            },  {
-                name: '评论',
-                link: ''
-            },  {
-                name: '图片',
-                link: ''
-            },  {
-                name: '设置',
-                link: ''
             }
         ]
     }

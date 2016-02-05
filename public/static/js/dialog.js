@@ -6,7 +6,9 @@ define(function (require, exports, module){
 
     var Dialog = function (){
         this.message = ''; //要显示的内容
+        this.isShowCancel = false; //是否显示取消按钮
         this.onConfirm = null; //点击确定按钮的回调函数
+        this.onCancel = null;
         this.onClose = null; //点击关闭按钮的回调函数
         this.isMask = true;
 
@@ -23,6 +25,7 @@ define(function (require, exports, module){
                     '</div>' +
                     '<div class="dialog-btn-panel">' +
                         '<div class="dialog-btn confirm">确定</div>' +
+                        '<div class="dialog-btn cancel" style="display:none">取消</div>' +
                     '</div>' +
                 '</div>'
 
@@ -67,7 +70,14 @@ define(function (require, exports, module){
             var namespace = '.' + this._eventNamespace,
                 _this = this,
                 $close = $dialog.find('.dialog-ctrl-panel .close'),
-                $confirm = $dialog.find('.dialog-btn-panel .dialog-btn.confirm');
+                $confirm = $dialog.find('.dialog-btn-panel .dialog-btn.confirm'),
+                $cancel = $dialog.find('.dialog-btn-panel .dialog-btn.cancel');
+
+            if (this.isShowCancel){
+                $cancel.show();
+            } else {
+                $cancel.hide();
+            }
 
             $close.off(namespace).on('click' + namespace, function (){
                 _this.hide();
@@ -75,6 +85,12 @@ define(function (require, exports, module){
             $confirm.off(namespace).on('click' + namespace, function (){
                 if (typeof _this.onConfirm === 'function'){
                     _this.onConfirm.call(_this);
+                }
+                _this.hide();
+            });
+            $cancel.off(namespace).on('click' + namespace, function (){
+                if (typeof _this.onCancel === 'function'){
+                    _this.onCancel.call(_this);
                 }
                 _this.hide();
             });
