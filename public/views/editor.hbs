@@ -18,6 +18,7 @@ seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
         $('#editor #hPreview').addClass('myself-content');
 
         var aType = '{{type}}';
+        var articleId = '{{articleId}}';
 
         $('#submit').on('click', function (){
             var $this = $(this);
@@ -26,13 +27,26 @@ seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
             }
             var title = e.getTitle(),
                 content = e.getContent();
-            var data = {
-                title: title,
-                article: content
-            };
+
+            var data;
+            if (aType === 'update'){
+                data = {
+                    title: title,
+                    article: content,
+                    type: 'update',
+                    articleId: articleId
+                };
+            } else {
+                data = {
+                    title: title,
+                    article: content
+                };
+            }
 
             var d = new Dialog;
             $this.addClass('disabled');
+
+            console.log(data);
 
             $.ajax({
                 type:'POST',
@@ -45,6 +59,9 @@ seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
                         d.defaultOpen('发布成功');
                         e.clearEditor();
                         e.toPreview();
+                        if (aType === 'update'){
+                            window.location.href = '/admin/article';
+                        }
                     } else {
                         d.defaultOpen(res.info);
                     }
@@ -57,7 +74,7 @@ seajs.use(['HelloWorld', 'Dialog'], function (HelloWorld, Dialog){
         });
 
         $('#back').on('click', function (){
-            if (aType === 'alter'){
+            if (aType === 'update'){
                 e.clearContext();
                 window.location.href = '/admin/article';
             }

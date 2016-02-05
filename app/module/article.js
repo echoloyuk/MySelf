@@ -9,7 +9,7 @@ var util = require('../components/util');
 var article = {};
 
 /*
- * artice = {title:'', article:'', user:''}
+ * article = {title:'', article:'', user:'', type:'', articleId}
  */
 article.setArticle = function (article, onSucc, onErr){
     var conn = connection.connect();
@@ -18,12 +18,20 @@ article.setArticle = function (article, onSucc, onErr){
     }
     var _user = article.user,
         title = article.title,
+        type = article.type,
+        articleId = article.articleId,
         article = util.sqlFilter(article.article),
         category = 1,
         date = util.getDateString(new Date),
         update = date,
         userId;
     var result = {};
+
+    if (type !== 'update' || !articleId){
+        type = 'add';
+    }
+
+
     async.waterfall([
         function (next){
             user.getUserId(_user, function (id){
@@ -38,16 +46,25 @@ article.setArticle = function (article, onSucc, onErr){
                 return;
             });
         }, function (next){
-            var sql = 'insert into myself_article ' +
-                        '(title, content, category_id, create_date, update_date, user_id, count) ' +
-                        'values ("' +
-                        title + '", "' +
-                        article + '", ' +
-                        category + ', "' +
-                        date + '", "' +
-                        update + '", ' +
-                        userId + ', ' +
-                        '0)';
+            var sql;
+            if (type === 'add'){
+                sql = 'INSERT INTO myself_article ' +
+                       '(title, content, category_id, create_date, update_date, user_id, count) ' +
+                       'VALUES ("' +
+                       title + '", "' +
+                       article + '", ' +
+                       category + ', "' +
+                       date + '", "' +
+                       update + '", ' +
+                       userId + ', ' +
+                       '0)';
+            } else {
+                sql = 'UPDATE myself_article SET ' +
+                      'title="' + title + '", ' +
+                      'content="' + article + '", ' +
+                      'update_date="' + update + '" ' +
+                      'WHERE id=' + articleId;
+            }
             conn.query(sql, function (err, res){
                 if (err){
                     console.log(err);
@@ -103,7 +120,6 @@ article.getArticleList = function (start, count, onSucc, onErr){
                     rows[i]['imgUrl'] = regRes[1];
                 }
             }
-            console.log(rows);
             next(null, rows);
         }, function (rows, next){
             var sql = 'SELECT a.id FROM myself_article a';

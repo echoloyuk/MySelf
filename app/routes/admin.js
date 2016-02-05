@@ -20,7 +20,8 @@ router.get('/editor', function(req, res, next) {
             var data = {
                 articleTitle:rows[0]['title'],
                 articleContent:rows[0]['content'],
-                type:'alter'
+                type:'update',
+                articleId: articleId
             };
             res.render('editor', data);
         }, function (){
@@ -66,7 +67,9 @@ router.post('/doPostArticle', function (req, res, next){
     var session = req.session;
     var username = session.username,
         title = req.body.title,
-        content = req.body.article;
+        content = req.body.article,
+        articleId = req.body.articleId,
+        type = req.body.type;
 
     var flag = false;
     if (!title){
@@ -84,10 +87,15 @@ router.post('/doPostArticle', function (req, res, next){
         res.send(JSON.stringify(err));
         return;
     }
+    if (type !== 'update' || !articleId){
+        type = 'add';
+    }
     var data = {
         title: title,
         article: content,
-        user: username
+        user: username,
+        type: type,
+        articleId: articleId
     };
     async.waterfall([
         function (next){
