@@ -125,18 +125,22 @@ seajs.use(['Paging', 'Dialog'], function (Paging, Dialog){
 
         //删除article
         var d = new Dialog;
-        d.isShowCancel = true;
+        
         d.message = '确定要删除吗?';
         $(document).on('click', '#articleList .list-item .deleteBtn', function (){
             var $this = $(this);
             var id = $this.parent().parent().parent().attr('data-id');
+            d.isShowCancel = true;
             d.onConfirm = function (){
                 $.ajax({
                     url:'/admin/doDeleteArticle',
                     type:'POST',
                     data:{articleId:id},
                     success: function (res){
-                        loadArticle();
+                        if (res && res.stat === 'success'){
+
+                        } else {
+                        }
                     }
                 });
             };

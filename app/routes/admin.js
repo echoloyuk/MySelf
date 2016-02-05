@@ -107,15 +107,7 @@ router.post('/doPostArticle', function (req, res, next){
             });
         }, function (articleId, next){
             next(null);
-            /*var tmpId = session['articleTmpId'];
-            image.saveImage(tmpId, articleId, function (res){
-                next(null);
-            }, function (err){
-                res.setHeader('Content-Type', 'application/json');
-                res.send(JSON.stringify(err));
-            });*/
         }, function (next){
-            //session['articleTmpId'] = '';
             res.setHeader('Content-Type', 'application/json');
             res.send(JSON.stringify({stat:'success', info:'文章发布成功'}));
         }
@@ -171,6 +163,23 @@ router.get('/getArticle', function (req, res, next){
         data.totalItems = total;
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(data));
+    }, function (err){
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify(err));
+    });
+});
+
+/* 删除article */
+router.post('/doDeleteArticle', function (req, res, next){
+    var articleId = req.body.articleId;
+    if (!articleId){
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({stat:'error'}));
+        return;
+    }
+    article.deleteArticle(articleId, function (succ){
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({stat:'success'}));
     }, function (err){
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify(err));

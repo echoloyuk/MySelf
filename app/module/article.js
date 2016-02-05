@@ -167,6 +167,23 @@ article.getArticle = function (articleId, onSucc, onErr){
     ]);
 }
 
+/* 删除文章 */
+article.deleteArticle = function (articleId, onSucc, onErr){
+    var conn = connection.connect();
+    if (!articleId){
+        onErr.call(this, {stat:'error', info:'没有要删除的文章'});
+        return;
+    }
+    var sql = 'DELETE FROM myself_article WHERE id=' + articleId;
+    conn.query(sql, function (err){
+        if (err){
+            onErr.call(this, {stat:'error', info:'删除文章错误'});
+            return;
+        }
+        onSucc.call(this, {stat:'success'});
+    });
+};
+
 /* 设置某个article阅读数+1 */
 article.increaseReadingNum = function (articleId, onSucc, onErr){
     var conn = connection.connect();
