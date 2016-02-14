@@ -138,8 +138,17 @@ seajs.use(['Paging', 'Dialog'], function (Paging, Dialog){
                     data:{articleId:id},
                     success: function (res){
                         if (res && res.stat === 'success'){
-
+                            d.isShowCancel = false;
+                            d.message = '删除成功';
+                            d.onConfirm = function (){
+                                loadArticle();
+                            }
+                            d.show();
                         } else {
+                            d.isShowCancel = false;
+                            d.message = '删除失败';
+                            d.onConfirm = null;
+                            d.show();
                         }
                     }
                 });
